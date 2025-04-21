@@ -139,15 +139,11 @@ Fitur-fitur numerik (Square_Footage, Num_Bedrooms, Num_Bathrooms, Year_Built, Lo
 Proses standarisasi dilakukan secara terpisah untuk set pelatihan dan set pengujian. Objek StandardScaler di-fit (dilatih untuk mendapatkan mean dan standar deviasi) hanya pada data pelatihan. Kemudian, mean dan standar deviasi yang diperoleh dari data pelatihan digunakan untuk mentransformasi baik data pelatihan maupun data pengujian. Hal ini bertujuan untuk mencegah data leakage dan memastikan bahwa data pengujian diproses dengan cara yang sama seperti data yang dipelajari oleh model selama pelatihan.
 
 
-Berikut adalah hasilnya untuk data X_train dan y_train
-<img src="https://github.com/user-attachments/assets/3960fa6f-9f44-4d9c-907b-05f8749664cd" alt="X_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
+Berikut adalah hasilnya untuk data X_train 
+<img src="https://github.com/user-attachments/assets/11ae8336-96a0-4cfa-a236-5754065bb147" alt="X_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
-<img src="https://github.com/user-attachments/assets/45fa1d7d-f889-456c-ba34-a9c1d7aa537e" alt="y_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-Berikut adalah hasilnya untuk data X_test dan y_test
-<img src="https://github.com/user-attachments/assets/36a95f60-4a36-4dfb-b812-96000c4a576f" alt="X_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-<img src="https://github.com/user-attachments/assets/8d21fb81-ae30-4f4d-b7bd-e255ef0437e3" alt="y_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
+Berikut adalah hasilnya untuk data X_test
+<img src="https://github.com/user-attachments/assets/1b02bebc-54f7-47c3-af5e-c5eb9f959cf6" alt="X_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 
