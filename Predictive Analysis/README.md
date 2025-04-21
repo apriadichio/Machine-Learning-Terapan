@@ -84,12 +84,14 @@ Untuk mendeteksi duplicate digunakan fungsi duplicated().sum() dan diperoleh:
 ### Outlier
 Untuk mendeteksi Outlier digunakan metode IQR serta boxplot untuk visualisasi nya berikut adalah hasilnya:
 
-<img src="https://github.com/user-attachments/assets/2fbf4526-dd78-4f3a-9b2a-628453014e51" alt="Outlier" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/9e5c56f6-efde-4901-b4dd-8fb16ecb2149" alt="Outlier" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ### Univariate Analysis
 Analisis yang melibatkan satu variabel, fokus pada distribusi, nilai ekstrim, atau statistik deskriptif.
 
-<img src="https://github.com/user-attachments/assets/a161a28e-864d-44a8-a447-2ba5f54b8c12" alt="Distribusi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/8c496051-4be5-44ef-861d-d6ed2fa0c23f" alt="Distribusi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 Diagram di atas menunjukkan distribusi frekuensi dari masing-masing fitur dalam dataset ini. Untuk fitur target dalam case ini (House_Price), memiliki distribusi harga rumah yang terlihat mendekati normal tetapi sedikit skew ke kiri (lebih banyak rumah dengan harga menengah ke tinggi).
 
