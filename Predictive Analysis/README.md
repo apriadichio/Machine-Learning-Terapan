@@ -51,7 +51,7 @@ Terdapat beberapa tahapan yang diperlukan untuk memahami data, seperti:
 ### Analisis statistik deskriptif
 Untuk melakukan analisis statisitik dekriptif digunakan fungsi describe() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/efe8a418-317c-466e-bbdb-51cf6458576f" alt="Hasil descrribe()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/056cef0a-9274-4b0b-8abb-af56a95b2ae5" alt="Hasil descrribe()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 - Square_Footage: Luas bangunan rumah (dalam satuan hektar). Rata-rata luas sebesar 2.815 hektar, dengan minimum 503 hektar  dan maksimum 4.999 hektar
 
