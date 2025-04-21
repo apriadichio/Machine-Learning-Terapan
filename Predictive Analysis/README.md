@@ -156,7 +156,16 @@ Model ini mencoba menemukan hubungan linear antara fitur-fitur (variabel indepen
 - Melatih model menggunakan data pelatihan (X_train, y_train) dengan metode fit()
 - membuat prediksi harga rumah pada data pengujian (X_test) menggunakan metode predict().
 
-<img src="https://github.com/user-attachments/assets/eb539412-8233-4f06-8421-085e7a09d898" alt="Linreg" style="float: left; margin-right: 15px; width: auto; height: auto;">
+```
+# Inisialisasi model Regresi Linear
+linear_reg = LinearRegression()
+
+# Melatih model menggunakan data training
+linear_reg.fit(X_train, y_train)
+
+# Membuat prediksi pada data testing
+y_pred_linear = linear_reg.predict(X_test)
+```
 
 Terderpat beberapa kelebihan dan juga kekurangan dari model ini, antara lain :
 - Kelebihan: Interpretasi model relatif mudah melalui analisis koefisien. Komputasi cepat dan efisien. Bekerja baik jika hubungan antara fitur dan target cenderung linear.
@@ -169,8 +178,16 @@ Model ini merupakan ensemble learning method yang membangun banyak pohon keputus
 - Melatih model menggunakan data pelatihan (X_train, y_train) dengan metode fit()
 - Membuat prediksi harga rumah pada data pengujian (X_test) menggunakan metode predict(
 
-<img src="https://github.com/user-attachments/assets/f1b8523a-a313-41fb-ae34-7b1eaa897b9e" alt="RFG" style="float: left; margin-right: 15px; width: auto; height: auto;">
+```
+# Inisialisasi model Random Forest Regressor
+random_forest_reg = RandomForestRegressor(n_estimators=100, random_state=42)
 
+# Melatih model menggunakan data training
+random_forest_reg.fit(X_train, y_train)
+
+# Membuat prediksi pada data testing
+y_pred_rf = random_forest_reg.predict(X_test)
+```
 Terderpat beberapa kelebihan dan juga kekurangan dari model ini, antara lain :
 - Kelebihan: Mampu menangkap hubungan non-linear dan interaksi antar fitur secara efektif. Lebih robust terhadap outliers dibandingkan Regresi Linear. Dapat memberikan informasi mengenai feature importance.
 - Kekurangan: Model yang lebih kompleks dan sulit diinterpretasikan dibandingkan Regresi Linear. Cenderung overfit jika tidak di-tune dengan baik.
