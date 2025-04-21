@@ -73,12 +73,13 @@ Untuk melakukan analisis statisitik dekriptif digunakan fungsi describe() dan di
 ### Missing Value
 Untuk mendeteksi missing value digunakan fungsi isnull().sum() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/2af4bfde-ed9c-4b9b-bc1b-d89528b3cdae" alt="Hasil isnull().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/2ad8b3b1-763f-4fe2-a12c-91b418c3fdc7" alt="Hasil isnull().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 ### Duplicate
 Untuk mendeteksi duplicate digunakan fungsi duplicated().sum() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/f89e9c35-a7be-40a4-aacd-99195186a671" alt="duplicated().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/72417ff1-5e01-4445-9540-6736b9525c92" alt="duplicated().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ### Outlier
 Untuk mendeteksi Outlier digunakan metode IQR serta boxplot untuk visualisasi nya berikut adalah hasilnya:
