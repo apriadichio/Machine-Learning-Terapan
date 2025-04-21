@@ -98,7 +98,7 @@ Diagram di atas menunjukkan distribusi frekuensi dari masing-masing fitur dalam 
 ### Multivariate Analysis
 Analisis yang melibatkan dua atau lebih variabel untuk melihat hubungan antar fitur, pola, atau korelasi. Untuk analisis ini akan memanfaatkan matriks korelasi dan juga pair plot.
 
-<img src="https://github.com/user-attachments/assets/b5ec6b14-27f9-455a-a4da-6db30ce09d6a" alt="Korelasi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/d0efa3bf-7450-4e51-9080-34f74d94cfaf" alt="Korelasi" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Visualisasi di atas menunjukkan matriks korelasi antar fitur numerik dalam dataset perumahan. Korelasi berkisar antara -1 (berbanding terbalik sempurna) hingga +1 (berbanding lurus sempurna). Warna lebih merah berarti korelasi lebih tinggi, sedangkan warna biru menunjukkan korelasi lemah atau negatif.
 
@@ -110,7 +110,7 @@ Fitur lain seperti:
 - Num_Bedrooms, Num_Bathrooms, dan Neighborhood_Quality hampir tidak memiliki korelasi signifikan dengan harga rumah.
 - Korelasi antar fitur lainnya juga sangat rendah, menunjukkan tidak ada multikolinearitas yang kuat di antara sebagian besar fitur.
 
-<img src="https://github.com/user-attachments/assets/5b3d6a0a-9f89-4483-8a45-9381efa00cc8" alt="Pairplot" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/49a99461-1128-478e-9df0-ba63e6e18772" alt="Pairplot" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Visualisasi di atas adalah pairplot, yang menunjukkan hubungan pasangan antar fitur numerik dalam dataset. Untuk Square_Footage dengan House_Price, Terlihat hubungan linear yang sangat kuat, garisnya tampak lurus dan naik yang menguatkan bahwa ada korelasi tinggi seperti yang dilihat pada visualisasi sebelumnya (0.99).
 
@@ -121,12 +121,15 @@ Selanjutnya akan dilakukan Pembagian dataset (splitting data) ke dalam data uji 
 ### Pembagian Dataset
 Dataset dibagi menjadi set pelatihan (X_train, y_train) dan set pengujian (X_test, y_test) menggunakan fungsi train_test_split dengan proporsi 80% untuk pelatihan dan 20% untuk pengujian dan random_state = 42  untuk memastikan reproduktibilitas.
 
-<img src="https://github.com/user-attachments/assets/c1978a4d-ac78-4fcc-80ce-11a4f96e18db" alt=" Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+```
+# Splitting
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
 berikut adalah hasil dari pembagian dataset
 
-<img src="https://github.com/user-attachments/assets/df39d392-11e3-41cd-ae97-176c75939ab5" alt=" hasil Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+<img src="https://github.com/user-attachments/assets/445657bb-068e-4757-a27e-f2a78f900834" alt=" hasil Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 ### Standarisasi Fitur Numerik 
