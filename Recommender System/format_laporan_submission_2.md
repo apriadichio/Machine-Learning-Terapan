@@ -93,7 +93,7 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
   
 **cellphones users.csv**
 
-<img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data users" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Data Numerik:
 - age: Terdapat 99 data usia penggun dengan rata-rata usia pengguna adalah sekitar 36 tahun. Usia pengguna termuda adalah 21 tahun dan usia pengguna tertua adalah 61 tahun.
@@ -225,14 +225,21 @@ Kolom 'occupation':
  'MANAGER' 'HEALTHCARE' 'Computer technician' 'Executive Manager']
 ```
 
+berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan untuk proses selanjutnya:
+- fitur rating, terdapat nilai 18 (seharusnya max 10)
+- fitur model, terdapat inkonsistensi pada data karena adanya penggunaan tahun walaupun fitur releas date sudah ada
+- fitur date, merubah tipe data tanggal
+- fitur gender, 'select gender' akan diubah menjadi unknown
+- fitur occupation, banyak nya nilai uniqe yang bermakna sama dan juga banyak data yang tidak konsisten.
+
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+### merge data
+Penggabungan data ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+<img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
