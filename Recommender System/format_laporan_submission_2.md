@@ -26,14 +26,31 @@ Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
+- cellphones data.csv: Berisi informasi mengenai 34 ponsel pintar populer di AS pada tahun 2022. Setiap ponsel memiliki 13 fitur utama, termasuk performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
+- cellphones users.csv: Mengandung informasi demografis pengguna yang berpartisipasi dalam survei, termasuk usia, jenis kelamin, dan pekerjaan.
+- cellphones ratings.csv: Berisi data rating yang diberikan oleh pengguna melalui survei di Mechanical Turk. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
-
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Variabel-variabel pada dataset adalah sebagai berikut (setelah penggabungan):
+- cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
+- brand: Merek ponsel pintar.
+- model: Nama model ponsel pintar.
+- operating system: Sistem operasi yang digunakan ponsel.
+- internal memory: Kapasitas memori internal ponsel (GB).
+- RAM: Kapasitas Random Access Memory (GB).
+- performance: Skor performa ponsel .
+- main camera: Resolusi kamera utama (MP).
+- selfie camera: Resolusi kamera depan (MP).
+- battery size: Kapasitas baterai (mAh).
+- screen size: Ukuran layar (inci).
+- weight: Berat ponsel (gram).
+- price: Harga ponsel (Dollar).
+- release date: Tanggal rilis ponsel.
+- user_id: Identifikasi unik untuk setiap pengguna.
+- rating: Tingkat kemungkinan pembelian yang diberikan pengguna (1-10).
+- age: Usia pengguna.
+- gender: Jenis kelamin pengguna.
+- occupation: Pekerjaan pengguna.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
