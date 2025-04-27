@@ -31,7 +31,8 @@ Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/da
 - cellphones users.csv: Mengandung informasi demografis pengguna yang berpartisipasi dalam survei, termasuk usia, jenis kelamin, dan pekerjaan.
 - cellphones ratings.csv: Berisi data rating yang diberikan oleh pengguna melalui survei di Mechanical Turk. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
 
-Variabel-variabel pada dataset adalah sebagai berikut (setelah penggabungan):
+Variabel-variabel pada dataset adalah sebagai berikut :
+**cellphones data.csv**
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - brand: Merek ponsel pintar.
 - model: Nama model ponsel pintar.
@@ -46,14 +47,19 @@ Variabel-variabel pada dataset adalah sebagai berikut (setelah penggabungan):
 - weight: Berat ponsel (gram).
 - price: Harga ponsel (Dollar).
 - release date: Tanggal rilis ponsel.
+- 
+**cellphones rating.csv**
 - user_id: Identifikasi unik untuk setiap pengguna.
+- cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - rating: Tingkat kemungkinan pembelian yang diberikan pengguna (1-10).
+
+**cellphones users.csv**
+- user_id: Identifikasi unik untuk setiap pengguna.
 - age: Usia pengguna.
 - gender: Jenis kelamin pengguna.
 - occupation: Pekerjaan pengguna.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+D
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
