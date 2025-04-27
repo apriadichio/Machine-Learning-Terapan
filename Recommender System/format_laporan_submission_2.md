@@ -52,7 +52,7 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 **cellphones rating.csv**
 - user_id: Identifikasi unik untuk setiap pengguna.
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
-- rating: Tingkat kemungkinan pembelian yang diberikan pengguna (1-10).
+- rating: Tingkat kemungkinan pembelian yang diberikan pengguna(1-10).
 
 **cellphones users.csv**
 - user_id: Identifikasi unik untuk setiap pengguna.
@@ -60,7 +60,7 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 - gender: Jenis kelamin pengguna.
 - occupation: Pekerjaan pengguna.
 
-Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) untuk mendapatkan pemahaman tentang karakteristik data.
+Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 ### Analisis statistik deskriptif
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
 
@@ -89,13 +89,141 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
 
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+- rating: Rating terendah adalah 1 dan rating tertinggi adalah 18 
+  
 **cellphones users.csv**
 
 <img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+Data Numerik:
+- age: Terdapat 99 data usia penggun dengan rata-rata usia pengguna adalah sekitar 36 tahun. Usia pengguna termuda adalah 21 tahun dan usia pengguna tertua adalah 61 tahun.
 
+Data Kategorikal
+-gender: Terdapat 3 kategori jenis kelamin yang berbeda. Kategori jenis kelamin yang paling sering muncul adalah "Male" (Laki-laki) sebanyak 50 kali.
+- occupation: Terdapat 56 jenis pekerjaan yang berbeda. Pekerjaan yang paling sering muncul adalah "Information Technology" (Teknologi Informasi) sebanyak 10 kali.
 
+### uniqe_values
 
+**cellphones data.csv**
+```
+Nilai unik dari DataFrame 'cellphones':
+
+Kolom 'cellphone_id':
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+ 24 25 26 27 28 29 30 31 32]
+
+Kolom 'brand':
+['Apple' 'Asus' 'Samsung' 'Google' 'OnePlus' 'Oppo' 'Vivo' 'Xiaomi' 'Sony'
+ 'Motorola']
+
+Kolom 'model':
+['iPhone SE (2022)' 'iPhone 13 Mini' 'iPhone 13' 'iPhone 13 Pro'
+ 'iPhone 13 Pro Max' 'iPhone XR' 'Zenfone 8' 'Galaxy A13' 'Galaxy A32'
+ 'Galaxy A53' 'Galaxy S22' 'Galaxy S22 Plus' 'Galaxy S22 Ultra'
+ 'Galaxy Z Flip 3' 'Galaxy Z Fold 3' 'Pixel 6 \xa0' 'Pixel 6a'
+ 'Pixel 6 Pro\xa0' 'Nord N20' 'Nord 2T' '10 Pro' '10T' 'Find X5 Pro'
+ 'X80 Pro' 'Redmi Note 11' '11T Pro' '12 Pro' 'Poco F4' 'Xperia Pro'
+ 'Moto G Stylus (2022)' 'Moto G Play (2021)' 'Moto G Pure'
+ 'Moto G Power (2022)']
+
+Kolom 'operating system':
+['iOS' 'Android']
+
+Kolom 'internal memory':
+[128 256  64  32 512]
+
+Kolom 'RAM':
+[ 4  6  3  8 12]
+
+Kolom 'performance':
+[ 7.23  7.72  7.75  7.94  8.01  4.22  6.76  1.36  2.2   3.79  8.81  7.22
+  9.68  5.96  6.35  6.88  7.19  3.8   6.04  8.86 11.   10.12  9.81  2.44
+  7.59  9.85  6.98  6.82  2.3   1.42  1.02  1.35]
+
+Kolom 'main camera':
+[ 12  64  50  48 108  13]
+
+Kolom 'selfie camera':
+[ 7 12  8 13 32 10 40  4 11 16 20  5]
+
+Kolom 'battery size':
+[2018 2438 3240 3065 4352 2942 4000 5000 3700 4500 3300 4400 4614 4410
+ 5003 4800 4700 4600]
+
+Kolom 'screen size':
+[4.7 5.4 6.1 6.7 5.9 6.6 6.5 6.8 7.6 6.4]
+
+Kolom 'weight':
+[144 141 174 204 240 194 169 196 205 189 167 195 228 183 271 207 178 210
+ 173 190 201 218 215 179 225 188 203]
+
+Kolom 'price':
+[ 429  699  999 1199  236  599  154  199  312  528  899  840 1799  499
+  449  299  379  780  649  987  872  174  435  618  428 1998  500  159
+  129  189]
+
+Kolom 'release date':
+['18/03/2022' '24/09/2021' '26/10/2018' '12/05/2021' '23/03/2022'
+ '22/01/2021' '24/03/2022' '25/02/2022' '11/08/2021' '28/10/2021'
+ '21/07/2021' '28/04/2022' '21/05/2022' '11/01/2022' '06/08/2022'
+ '14/03/2022' '29/04/2022' '09/02/2022' '05/10/2021' '31/12/2021'
+ '27/07/2022' '27/01/2021' '27/04/2022' '14/01/2021' '14/10/2021'
+ '22/02/2022']
+```
+
+**cellphones rating.csv**
+```
+Nilai unik dari DataFrame 'rating':
+
+Kolom 'user_id':
+[  0   1   6   8  10  12  16  24  25  26  27  28  29  30  32  33  35  36
+  37  38  52  53  56  60  74  79  80  84  85  91  95  98  99 100 104 105
+ 106 110 111 112 113 114 115 116 119 120 123 124 126 128 129 137 140 142
+ 143 144 145 148 152 154 156 160 162 164 169 178 183 194 200 203 204 208
+ 211 215 226 227 230 231 232 233 234 235 236 237 238 240 242 243 244 245
+ 246 251 252 253 254 255 256 257 258]
+
+Kolom 'cellphone_id':
+[30  5 10  9 23  8 22 16 19  3  7 31 18 32 28 15  4 13  1 27 29 25 20  0
+ 11 17 21  6 14 12 24 26  2]
+
+Kolom 'rating':
+[ 1  3  9  2 10  8  7  5  6  4 18]
+```
+
+**cellphones users.csv**
+```
+Nilai unik dari DataFrame 'users':
+
+Kolom 'user_id':
+[  0   1   6   8  10  12  16  24  25  26  27  28  29  30  32  33  35  36
+  37  38  52  53  56  60  74  79  80  84  85  91  95  98  99 100 104 105
+ 106 110 111 112 113 114 115 116 119 120 123 124 126 128 129 137 140 142
+ 143 144 145 148 152 154 156 160 162 164 169 178 183 194 200 203 204 208
+ 211 215 226 227 230 231 232 233 234 235 236 237 238 240 242 243 244 245
+ 246 251 252 253 254 255 256 257 258]
+
+Kolom 'age':
+[38 40 55 25 23 28 31 57 27 29 33 61 34 39 30 41 42 50 48 43 32 36 37 56
+ 46 49 21 35 58 45]
+
+Kolom 'gender':
+['Female' 'Male' '-Select Gender-']
+
+Kolom 'occupation':
+['Data analyst' 'team worker in it' 'IT' 'Manager' 'worker' 'Accountant'
+ 'sales' 'it' 'Team leader' 'FINANCE' 'Finance' 'Sales' 'Ops Manager'
+ 'ICT Officer' 'QA Software Manager' 'Healthcare' 'self employed'
+ 'banking' 'nurse' 'executive' 'software developer' nan 'manager'
+ 'Warehousing' 'WEB DESIGN' 'Information Technology' 'Technical Engineer'
+ 'information' 'Administrator' 'System Administrator' 'Marketing'
+ 'EDUCATION' 'Security' 'retail' 'technician' 'homemaker' 'teacher'
+ 'president transportation company' 'ADMINISTRATIVE OFFICER'
+ 'Information technology' 'master degree' 'construction' 'accountant'
+ 'team leader' 'Administrative officer' 'SALES MANAGER' 'Purchase Manager'
+ 'writer' 'registered' 'business' 'Transportation' 'Education' 'HEALTHARE'
+ 'MANAGER' 'HEALTHCARE' 'Computer technician' 'Executive Manager']
+```
 
 
 
