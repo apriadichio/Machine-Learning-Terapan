@@ -241,7 +241,9 @@ Penggabungan data ini dilakukan agar tiap fitur akan memiliki informasi yang leb
 <img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 ### Perbaikan beberapa fitur
+
 **fitur rating**
+
 Membatasi nilai dalam kolom 'rating' antara 1 dan 10 dengan fungsi clip()
 ```
 Statistik kolom 'rating' setelah perbaikan di df_preparation:
@@ -257,6 +259,7 @@ Name: rating, dtype: float6
 ```
 
 **Fitur Gender**
+
 Nilai '-Select Gender-' kemungkinan merupakan nilai placeholder atau nilai default yang muncul ketika pengguna tidak memilih jenis kelamin secara spesifik. Menggantinya dengan 'Unknown' menciptakan representasi yang lebih standar dan konsisten untuk data yang tidak teridentifikasi\.
 ```
 df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', 'Unknown')
@@ -265,6 +268,7 @@ df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', '
 ```
 
 **Fitur Occupation**
+
 Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam kategori yang lebih umum dan terstruktur. Ini dilakukan dengan menggunakan sebuah mapping dictionary (occupation_mapping). Berikut adalah hasil akhirnya
 ```
 ['Data analyst' 'IT' 'Manager' 'Other' 'Finance' 'Sales' 'ICT Officer'
@@ -273,6 +277,7 @@ Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam 
 ```
 
 **fitur release date**
+
 Selanjutnya adalah melakukan perubahan format data pada kolom 'release date' menjadi tipe data datetime yang dikenali oleh Pandas dengan menggunakan fungsi to_datetime(). Berikut adalah hasilnya
 ```
 Nilai unik dan tipe data kolom 'release date' setelah konversi:
@@ -291,6 +296,7 @@ datetime64[ns]
 ```
 
 **fitur model**
+
 membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
 - Mengganti non-breaking space : Menggantinya dengan spasi biasa memastikan konsistensi dan mencegah kesalahan saat membandingkan atau menganalisis nama model.
 - Menghapus informasi tahun yang berada di dalam tanda kurung: membersihkan nama model dari informasi tahun rilis, yang sebenarnya sudah ada di fitur release date
