@@ -32,6 +32,7 @@ Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/da
 - cellphones ratings.csv: Berisi data rating yang diberikan oleh pengguna melalui survei di Mechanical Turk. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
 
 Variabel-variabel pada dataset adalah sebagai berikut :
+
 **cellphones data.csv**
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - brand: Merek ponsel pintar.
@@ -47,7 +48,7 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 - weight: Berat ponsel (gram).
 - price: Harga ponsel (Dollar).
 - release date: Tanggal rilis ponsel.
-- 
+  
 **cellphones rating.csv**
 - user_id: Identifikasi unik untuk setiap pengguna.
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
@@ -59,7 +60,12 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 - gender: Jenis kelamin pengguna.
 - occupation: Pekerjaan pengguna.
 
-D
+Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) untuk mendapatkan pemahaman tentang karakteristik data.
+### Analisis statistik deskriptif
+Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
+<img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="Hasil descrribe()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
