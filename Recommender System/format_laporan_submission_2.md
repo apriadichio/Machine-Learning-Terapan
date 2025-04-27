@@ -68,6 +68,23 @@ Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data s
 
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="Hasil describe() data hp" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+Data Numerik:
+- internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
+- RAM: Kapasitas memori RAM   Rentangnya dari 3 hingga 12, dengan rata-rata sekitar 6.8.
+- performance: Skor atau rating performa ponsel. Rentangnya dari 1.02 hingga 11, dengan rata-rata sekitar 6.2.
+- main camera: Resolusi kamera utama. Rentangnya dari 12 hingga 108, dengan rata-rata sekitar 41.
+- selfie camera: Resolusi kamera depan. Rentangnya dari 4 hingga 40, dengan rata-rata sekitar 15.
+- battery size: Kapasitas baterai. Rentangnya dari 2018 hingga 5003, dengan rata-rata sekitar 4321.
+- screen size: Ukuran layar. Rentangnya dari 4.7 hingga 7.6, dengan rata-rata sekitar 6.4.
+- weight: Berat ponsel. Rentangnya dari 141 hingga 271, dengan rata-rata sekitar 197.
+- price: Harga ponsel. Rentangnya dari 129 hingga 1998, dengan rata-rata sekitar 628.
+  
+Data Kategorikal:
+- brand: Merek ponsel. Terdapat 10 merek unik, dengan "Samsung" menjadi merek yang paling sering muncul (8 kali).
+- model: Nama model ponsel. Terdapat 33 model unik, yang berarti setiap baris kemungkinan besar mewakili model yang berbeda. "iPhone SE (2022)" adalah model yang paling sering muncul.
+- operating system: Sistem operasi ponsel. Terdapat 2 sistem operasi unik, dengan "Android" menjadi yang paling sering muncul (27 kali).
+release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, dengan "24/09/2021" menjadi tanggal yang paling sering muncul (4 kali).
+
 **cellphones rating.csv**
 
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
