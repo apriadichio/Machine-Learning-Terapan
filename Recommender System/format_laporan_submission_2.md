@@ -240,6 +240,37 @@ Penggabungan data ini dilakukan agar tiap fitur akan memiliki informasi yang leb
 
 <img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+### Perbaikan beberapa fitur
+**fitur rating**
+Membatasi nilai dalam kolom 'rating' antara 1 dan 10 dengan fungsi clip()
+```
+Statistik kolom 'rating' setelah perbaikan di df_preparation:
+count    990.000000
+mean       6.691919
+std        2.616552
+min        1.000000
+25%        5.000000
+50%        7.000000
+75%        9.000000
+max       10.000000
+Name: rating, dtype: float6
+```
+
+**Fitur Gender**
+Nilai '-Select Gender-' kemungkinan merupakan nilai placeholder atau nilai default yang muncul ketika pengguna tidak memilih jenis kelamin secara spesifik. Menggantinya dengan 'Unknown' menciptakan representasi yang lebih standar dan konsisten untuk data yang tidak teridentifikasi\.
+```
+df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', 'Unknown')
+
+['Female' 'Male' 'Unknown']
+```
+
+**Fitur Occupation**
+Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam kategori yang lebih umum dan terstruktur. Ini dilakukan dengan menggunakan sebuah mapping dictionary (occupation_mapping). Berikut adalah hasil akhirnya
+```
+['Data analyst' 'IT' 'Manager' 'Other' 'Finance' 'Sales' 'ICT Officer'
+ 'Healthcare' 'Executive' 'Unknown' 'Technical Engineer' 'Admin'
+ 'Marketing' 'Education' 'Technical' 'Transportation']
+```
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
