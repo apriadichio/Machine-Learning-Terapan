@@ -272,6 +272,39 @@ Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam 
  'Marketing' 'Education' 'Technical' 'Transportation']
 ```
 
+**fitur release date**
+Selanjutnya adalah melakukan perubahan format data pada kolom 'release date' menjadi tipe data datetime yang dikenali oleh Pandas dengan menggunakan fungsi to_datetime(). Berikut adalah hasilnya
+```
+Nilai unik dan tipe data kolom 'release date' setelah konversi:
+<DatetimeArray>
+['2021-01-14 00:00:00', '2018-10-26 00:00:00', '2022-02-25 00:00:00',
+ '2022-03-24 00:00:00', '2022-04-29 00:00:00', '2021-01-22 00:00:00',
+ '2022-03-14 00:00:00', '2021-07-21 00:00:00', '2022-05-21 00:00:00',
+ '2021-09-24 00:00:00', '2022-03-23 00:00:00', '2021-10-14 00:00:00',
+ '2022-04-28 00:00:00', '2022-02-22 00:00:00', '2021-01-27 00:00:00',
+ '2021-10-28 00:00:00', '2021-08-11 00:00:00', '2022-07-27 00:00:00',
+ '2022-04-27 00:00:00', '2021-10-05 00:00:00', '2022-01-11 00:00:00',
+ '2022-03-18 00:00:00', '2022-08-06 00:00:00', '2021-05-12 00:00:00',
+ '2022-02-09 00:00:00', '2021-12-31 00:00:00']
+Length: 26, dtype: datetime64[ns]
+datetime64[ns]
+```
+
+**fitur model**
+membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
+- Mengganti non-breaking space : Menggantinya dengan spasi biasa memastikan konsistensi dan mencegah kesalahan saat membandingkan atau menganalisis nama model.
+- Menghapus informasi tahun yang berada di dalam tanda kurung: membersihkan nama model dari informasi tahun rilis, yang sebenarnya sudah ada di fitur release date
+```
+Nilai unik kolom 'model' setelah menghapus tahun:
+['Moto G Play' 'iPhone XR' 'Galaxy S22' 'Galaxy A53' 'X80 Pro'
+ 'Galaxy A32' 'Find X5 Pro' 'Pixel 6a' 'Nord 2T' 'iPhone 13 Pro'
+ 'Galaxy A13' 'Moto G Pure' 'Nord N20' 'Moto G Power' 'Xperia Pro'
+ 'Pixel 6' 'iPhone 13 Pro Max' 'Galaxy Z Flip 3' 'iPhone 13 Mini'
+ 'Poco F4' 'Moto G Stylus' '11T Pro' '10 Pro' 'iPhone SE'
+ 'Galaxy S22 Plus' 'Pixel 6 Pro' '10T' 'Zenfone 8' 'Galaxy Z Fold 3'
+ 'Galaxy S22 Ultra' 'Redmi Note 11' '12 Pro' 'iPhone 13']
+```
+
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
