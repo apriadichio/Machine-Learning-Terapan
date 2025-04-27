@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Marchio Apriadi
 
 ## Project Overview
 
@@ -12,16 +12,9 @@ Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek
 
 ## Business Understanding
 
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
-
-Menjelaskan pernyataan masalah:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+Kesulitan Pengguna dalam Menemukan Ponsel yang Sesuai: Pengguna seringkali kewalahan dengan banyaknya pilihan ponsel pintar yang tersedia, sehingga sulit untuk mengidentifikasi perangkat yang paling cocok dengan kebutuhan, preferensi, dan anggaran mereka.
+Tantangan Personalisasi Penjualan: Penjual mengalami kesulitan dalam menawarkan rekomendasi produk yang relevan secara individual kepada setiap pelanggan tanpa pemahaman yang mendalam tentang preferensi mereka.
 
 ### Goals
 
