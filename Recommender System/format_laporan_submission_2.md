@@ -63,13 +63,17 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) untuk mendapatkan pemahaman tentang karakteristik data.
 ### Analisis statistik deskriptif
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
+
 **cellphones data.csv**
+
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="Hasil describe() data hp" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 **cellphones rating.csv**
+
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 **cellphones users.csv**
+
 <img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
