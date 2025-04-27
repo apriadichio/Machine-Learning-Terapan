@@ -51,7 +51,7 @@ Terdapat beberapa tahapan yang diperlukan untuk memahami data, seperti:
 ### Analisis statistik deskriptif
 Untuk melakukan analisis statisitik dekriptif digunakan fungsi describe() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/efe8a418-317c-466e-bbdb-51cf6458576f" alt="Hasil descrribe()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/056cef0a-9274-4b0b-8abb-af56a95b2ae5" alt="Hasil descrribe()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 - Square_Footage: Luas bangunan rumah (dalam satuan hektar). Rata-rata luas sebesar 2.815 hektar, dengan minimum 503 hektar  dan maksimum 4.999 hektar
 
@@ -73,29 +73,32 @@ Untuk melakukan analisis statisitik dekriptif digunakan fungsi describe() dan di
 ### Missing Value
 Untuk mendeteksi missing value digunakan fungsi isnull().sum() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/2af4bfde-ed9c-4b9b-bc1b-d89528b3cdae" alt="Hasil isnull().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/2ad8b3b1-763f-4fe2-a12c-91b418c3fdc7" alt="Hasil isnull().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 ### Duplicate
 Untuk mendeteksi duplicate digunakan fungsi duplicated().sum() dan diperoleh:
 
-<img src="https://github.com/user-attachments/assets/f89e9c35-a7be-40a4-aacd-99195186a671" alt="duplicated().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/72417ff1-5e01-4445-9540-6736b9525c92" alt="duplicated().sum()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ### Outlier
 Untuk mendeteksi Outlier digunakan metode IQR serta boxplot untuk visualisasi nya berikut adalah hasilnya:
 
-<img src="https://github.com/user-attachments/assets/2fbf4526-dd78-4f3a-9b2a-628453014e51" alt="Outlier" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/9e5c56f6-efde-4901-b4dd-8fb16ecb2149" alt="Outlier" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ### Univariate Analysis
 Analisis yang melibatkan satu variabel, fokus pada distribusi, nilai ekstrim, atau statistik deskriptif.
 
-<img src="https://github.com/user-attachments/assets/a161a28e-864d-44a8-a447-2ba5f54b8c12" alt="Distribusi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/8c496051-4be5-44ef-861d-d6ed2fa0c23f" alt="Distribusi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 Diagram di atas menunjukkan distribusi frekuensi dari masing-masing fitur dalam dataset ini. Untuk fitur target dalam case ini (House_Price), memiliki distribusi harga rumah yang terlihat mendekati normal tetapi sedikit skew ke kiri (lebih banyak rumah dengan harga menengah ke tinggi).
 
 ### Multivariate Analysis
 Analisis yang melibatkan dua atau lebih variabel untuk melihat hubungan antar fitur, pola, atau korelasi. Untuk analisis ini akan memanfaatkan matriks korelasi dan juga pair plot.
 
-<img src="https://github.com/user-attachments/assets/b5ec6b14-27f9-455a-a4da-6db30ce09d6a" alt="Korelasi" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/d0efa3bf-7450-4e51-9080-34f74d94cfaf" alt="Korelasi" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Visualisasi di atas menunjukkan matriks korelasi antar fitur numerik dalam dataset perumahan. Korelasi berkisar antara -1 (berbanding terbalik sempurna) hingga +1 (berbanding lurus sempurna). Warna lebih merah berarti korelasi lebih tinggi, sedangkan warna biru menunjukkan korelasi lemah atau negatif.
 
@@ -107,7 +110,7 @@ Fitur lain seperti:
 - Num_Bedrooms, Num_Bathrooms, dan Neighborhood_Quality hampir tidak memiliki korelasi signifikan dengan harga rumah.
 - Korelasi antar fitur lainnya juga sangat rendah, menunjukkan tidak ada multikolinearitas yang kuat di antara sebagian besar fitur.
 
-<img src="https://github.com/user-attachments/assets/5b3d6a0a-9f89-4483-8a45-9381efa00cc8" alt="Pairplot" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/49a99461-1128-478e-9df0-ba63e6e18772" alt="Pairplot" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Visualisasi di atas adalah pairplot, yang menunjukkan hubungan pasangan antar fitur numerik dalam dataset. Untuk Square_Footage dengan House_Price, Terlihat hubungan linear yang sangat kuat, garisnya tampak lurus dan naik yang menguatkan bahwa ada korelasi tinggi seperti yang dilihat pada visualisasi sebelumnya (0.99).
 
@@ -118,12 +121,15 @@ Selanjutnya akan dilakukan Pembagian dataset (splitting data) ke dalam data uji 
 ### Pembagian Dataset
 Dataset dibagi menjadi set pelatihan (X_train, y_train) dan set pengujian (X_test, y_test) menggunakan fungsi train_test_split dengan proporsi 80% untuk pelatihan dan 20% untuk pengujian dan random_state = 42  untuk memastikan reproduktibilitas.
 
-<img src="https://github.com/user-attachments/assets/c1978a4d-ac78-4fcc-80ce-11a4f96e18db" alt=" Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+```
+# Splitting
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
 berikut adalah hasil dari pembagian dataset
 
-<img src="https://github.com/user-attachments/assets/df39d392-11e3-41cd-ae97-176c75939ab5" alt=" hasil Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+<img src="https://github.com/user-attachments/assets/445657bb-068e-4757-a27e-f2a78f900834" alt=" hasil Splitting" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 ### Standarisasi Fitur Numerik 
@@ -133,15 +139,11 @@ Fitur-fitur numerik (Square_Footage, Num_Bedrooms, Num_Bathrooms, Year_Built, Lo
 Proses standarisasi dilakukan secara terpisah untuk set pelatihan dan set pengujian. Objek StandardScaler di-fit (dilatih untuk mendapatkan mean dan standar deviasi) hanya pada data pelatihan. Kemudian, mean dan standar deviasi yang diperoleh dari data pelatihan digunakan untuk mentransformasi baik data pelatihan maupun data pengujian. Hal ini bertujuan untuk mencegah data leakage dan memastikan bahwa data pengujian diproses dengan cara yang sama seperti data yang dipelajari oleh model selama pelatihan.
 
 
-Berikut adalah hasilnya untuk data X_train dan y_train
-<img src="https://github.com/user-attachments/assets/3960fa6f-9f44-4d9c-907b-05f8749664cd" alt="X_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
+Berikut adalah hasilnya untuk data X_train 
+<img src="https://github.com/user-attachments/assets/11ae8336-96a0-4cfa-a236-5754065bb147" alt="X_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
-<img src="https://github.com/user-attachments/assets/45fa1d7d-f889-456c-ba34-a9c1d7aa537e" alt="y_train" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-Berikut adalah hasilnya untuk data X_test dan y_test
-<img src="https://github.com/user-attachments/assets/36a95f60-4a36-4dfb-b812-96000c4a576f" alt="X_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-<img src="https://github.com/user-attachments/assets/8d21fb81-ae30-4f4d-b7bd-e255ef0437e3" alt="y_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
+Berikut adalah hasilnya untuk data X_test
+<img src="https://github.com/user-attachments/assets/1b02bebc-54f7-47c3-af5e-c5eb9f959cf6" alt="X_test" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 
@@ -154,7 +156,16 @@ Model ini mencoba menemukan hubungan linear antara fitur-fitur (variabel indepen
 - Melatih model menggunakan data pelatihan (X_train, y_train) dengan metode fit()
 - membuat prediksi harga rumah pada data pengujian (X_test) menggunakan metode predict().
 
-<img src="https://github.com/user-attachments/assets/eb539412-8233-4f06-8421-085e7a09d898" alt="Linreg" style="float: left; margin-right: 15px; width: auto; height: auto;">
+```
+# Inisialisasi model Regresi Linear
+linear_reg = LinearRegression()
+
+# Melatih model menggunakan data training
+linear_reg.fit(X_train, y_train)
+
+# Membuat prediksi pada data testing
+y_pred_linear = linear_reg.predict(X_test)
+```
 
 Terderpat beberapa kelebihan dan juga kekurangan dari model ini, antara lain :
 - Kelebihan: Interpretasi model relatif mudah melalui analisis koefisien. Komputasi cepat dan efisien. Bekerja baik jika hubungan antara fitur dan target cenderung linear.
@@ -167,8 +178,16 @@ Model ini merupakan ensemble learning method yang membangun banyak pohon keputus
 - Melatih model menggunakan data pelatihan (X_train, y_train) dengan metode fit()
 - Membuat prediksi harga rumah pada data pengujian (X_test) menggunakan metode predict(
 
-<img src="https://github.com/user-attachments/assets/f1b8523a-a313-41fb-ae34-7b1eaa897b9e" alt="RFG" style="float: left; margin-right: 15px; width: auto; height: auto;">
+```
+# Inisialisasi model Random Forest Regressor
+random_forest_reg = RandomForestRegressor(n_estimators=100, random_state=42)
 
+# Melatih model menggunakan data training
+random_forest_reg.fit(X_train, y_train)
+
+# Membuat prediksi pada data testing
+y_pred_rf = random_forest_reg.predict(X_test)
+```
 Terderpat beberapa kelebihan dan juga kekurangan dari model ini, antara lain :
 - Kelebihan: Mampu menangkap hubungan non-linear dan interaksi antar fitur secara efektif. Lebih robust terhadap outliers dibandingkan Regresi Linear. Dapat memberikan informasi mengenai feature importance.
 - Kekurangan: Model yang lebih kompleks dan sulit diinterpretasikan dibandingkan Regresi Linear. Cenderung overfit jika tidak di-tune dengan baik.
