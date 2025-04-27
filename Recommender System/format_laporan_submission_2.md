@@ -312,22 +312,37 @@ Nilai unik kolom 'model' setelah menghapus tahun:
 ```
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+**Content-Based Filtering**
+
+Membuat profil item (ponsel) berdasarkan rata-rata fitur-fitur numerik yang telah di-scaling dan fitur kategorikal yang telah di-encode. Profil pengguna dibuat berdasarkan rata-rata profil item yang telah diberi rating tinggi oleh pengguna. Rekomendasi dihasilkan berdasarkan cosine similarity antara profil pengguna dan profil semua item yang belum di-rating. Berikut adalah hasilnya
+```
+Rekomendasi Content-Based untuk User ID 1:
+            model  similarity
+3          12 Pro    0.298273
+13    Moto G Play    0.252409
+16  Moto G Stylus    0.251552
+22        Poco F4    0.242491
+24        X80 Pro    0.23719
+```
+
+**collaborative filtering**
+
+Membangun model jaringan saraf (RecommenderNetV2) dengan lapisan embedding untuk pengguna dan item, diikuti oleh lapisan dense dengan aktivasi ReLU dan lapisan dropout. Model dilatih untuk memprediksi rating yang dinormalisasi (skala 0-1 setelah rating asli dibagi 10 dan diskalakan). Rekomendasi dihasilkan dengan memprediksi rating untuk item yang belum di-rating oleh pengguna dan memilih top-N dengan prediksi tertinggi.
+
+<img src="https://github.com/user-attachments/assets/2abb2bbf-9bff-4fb8-a2ee-b598c2046169" alt="model cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+```
+Loss on test set (Neural CF): 0.7939
+RMSE on test set (Neural CF): 0.8909
+```
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+berikut adalah hasil visualisasi dari proses pelatihan model
+<img src="https://github.com/user-attachments/assets/8c47b631-3c00-46f9-a37e-92711c7de88c" alt="eval cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
-**---Ini adalah bagian akhir laporan---**
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+
