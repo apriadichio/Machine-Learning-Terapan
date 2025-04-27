@@ -78,7 +78,9 @@ for column in users.columns:
     print(unique_values)
 
 """Pada proses diatas adalah hasil dari statitstik deskriptif untuk data cellphone, seperti jumlah data yang valid (tidak kosong), rata-rata(mean), nilai maksimun dan mininum, dan juga nilai dari kategori unik yang ada dalam setiap fitur. Terdapat beberapa point penting:
+- fitur rating, terdapat nilai 18 (seharusnya max 10)
 - fitur model, terdapat inkonsistensi pada data karena adanya penggunaan tahun walaupun fitur releas date sudah ada
+- fitur date, merubah tipe data tanggal
 - fitur gender, 'select gender' akan diubah menjadi unknown
 - fitur occupation, banyak nya nilai uniqe yang bermakna sama dan juga banyak data yang tidak konsisten.
 
@@ -86,7 +88,7 @@ for column in users.columns:
 
 **merge all data**
 
-Selanjutnya adalah melakukan penggabungan data. Dengan melakukan penggabungan data ini, maka tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recom
+Selanjutnya adalah melakukan penggabungan data. Dengan melakukan penggabungan data ini, maka tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation
 """
 
 merged_df = pd.merge(rating, cellphones, on='cellphone_id', how='inner')
@@ -102,6 +104,17 @@ final_merged_df.head(10)
 """## Data Preparation"""
 
 df_preparation = final_merged_df.copy()
+
+"""**Memperbaiki fitur rating**
+
+Membatasi nilai dalam kolom 'rating' antara 1 dan 10 dengan fungsi clip()
+"""
+
+df_preparation['rating'] = df_preparation['rating'].clip(lower=1, upper=10)
+
+# Verifikasi setelah perbaikan
+print("Statistik kolom 'rating' setelah perbaikan di df_preparation:")
+print(df_preparation['rating'].describe())
 
 """**Memperbaiki fitur gender**
 
@@ -433,52 +446,6 @@ history = model.fit(
     callbacks=[early_stopping]
 )
 
-"""## Evaluasi
-
-mengukur seberapa baik model yang telah dilatih dapat melakukan generalisasi ke data baru dan tidak dikenal. Loss dan RMSE pada test set memberikan indikasi kinerja model yang sebenarnya.
-"""
-
-# Evaluasi Model
-loss, rmse = model.evaluate(test_dataset)
-print(f"\nLoss on test set (Neural CF): {loss:.4f}")
-print(f"RMSE on test set (Neural CF): {rmse:.4f}")
-
-"""Selanjutnya melkukan plotting dari hasil pelatihan model"""
-
-import matplotlib.pyplot as plt
-
-# Ambil riwayat pelatihan dari objek history
-history_dict = history.history
-
-loss_values = history_dict['loss']
-val_loss_values = history_dict['val_loss']
-rmse_values = history_dict['root_mean_squared_error']
-val_rmse_values = history_dict['val_root_mean_squared_error']
-
-epochs = range(1, len(loss_values) + 1)
-
-# Plot Loss
-plt.figure(figsize=(12, 5))
-plt.subplot(1, 2, 1)
-plt.plot(epochs, loss_values, 'bo-', label='Training Loss')
-plt.plot(epochs, val_loss_values, 'ro-', label='Validation Loss')
-plt.title('Training and Validation Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-
-# Plot RMSE
-plt.subplot(1, 2, 2)
-plt.plot(epochs, rmse_values, 'bo-', label='Training RMSE')
-plt.plot(epochs, val_rmse_values, 'ro-', label='Validation RMSE')
-plt.title('Training and Validation RMSE')
-plt.xlabel('Epochs')
-plt.ylabel('RMSE')
-plt.legend()
-
-plt.tight_layout()
-plt.show()
-
 """**Rekomendasi Collaborative Filltering**
 
 Menghasilkan rekomendasi HP yang dipersonalisasi untuk pengguna berdasarkan preferensi pengguna lain yang serupa, menggunakan model Neural Collaborative Filtering yang telah dilatih.
@@ -534,3 +501,49 @@ top_10_recommendations_random_user_cf = recommend_top_n_neural_cf_final_unique_s
     random_user_id_cf, model, user_encoder, item_encoder, df_preparation, top_n=10
 )
 top_10_recommendations_random_user_cf
+
+"""## Evaluasi
+
+mengukur seberapa baik model yang telah dilatih dapat melakukan generalisasi ke data baru dan tidak dikenal. Loss dan RMSE pada test set memberikan indikasi kinerja model yang sebenarnya.
+"""
+
+# Evaluasi Model
+loss, rmse = model.evaluate(test_dataset)
+print(f"\nLoss on test set (Neural CF): {loss:.4f}")
+print(f"RMSE on test set (Neural CF): {rmse:.4f}")
+
+"""Selanjutnya melkukan plotting dari hasil pelatihan model"""
+
+import matplotlib.pyplot as plt
+
+# Ambil riwayat pelatihan dari objek history
+history_dict = history.history
+
+loss_values = history_dict['loss']
+val_loss_values = history_dict['val_loss']
+rmse_values = history_dict['root_mean_squared_error']
+val_rmse_values = history_dict['val_root_mean_squared_error']
+
+epochs = range(1, len(loss_values) + 1)
+
+# Plot Loss
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(epochs, loss_values, 'bo-', label='Training Loss')
+plt.plot(epochs, val_loss_values, 'ro-', label='Validation Loss')
+plt.title('Training and Validation Loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+# Plot RMSE
+plt.subplot(1, 2, 2)
+plt.plot(epochs, rmse_values, 'bo-', label='Training RMSE')
+plt.plot(epochs, val_rmse_values, 'ro-', label='Validation RMSE')
+plt.title('Training and Validation RMSE')
+plt.xlabel('Epochs')
+plt.ylabel('RMSE')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
