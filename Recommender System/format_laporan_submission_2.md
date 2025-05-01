@@ -85,7 +85,8 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
 
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
-- rating: Rating terendah adalah 1 dan rating tertinggi adalah 18 
+- Rating terendah adalah 1 dan rating tertinggi adalah 18
+- Rata-rata rating adalah 6.7. 
   
 **cellphones users.csv**
 
