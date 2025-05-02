@@ -599,6 +599,7 @@ berikut adalah hasil visualisasi dari proses pelatihan model
 
 ### Kesimpulan 
 Penjelasan Metrik Evaluasi:
+
 Loss (0.7939):
 
 - Loss adalah ukuran seberapa jauh prediksi yang dihasilkan oleh model dari nilai yang sebenarnya. Dalam hal ini, loss mengukur kesalahan antara prediksi rating yang dihasilkan model untuk ponsel dan rating aktual yang diinginkan (dari data uji).
