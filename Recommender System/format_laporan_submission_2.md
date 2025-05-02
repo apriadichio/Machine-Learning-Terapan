@@ -22,6 +22,7 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
 
 ## Data Understanding
+### URL/tautan sumber data
 Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
 - cellphones data.csv: Berisi informasi mengenai 34 ponsel pintar populer di AS pada tahun 2022. Setiap ponsel memiliki 13 fitur utama, termasuk performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
 - cellphones users.csv: Mengandung informasi demografis pengguna yang berpartisipasi dalam survei, termasuk usia, jenis kelamin, dan pekerjaan.
