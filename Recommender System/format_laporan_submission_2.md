@@ -143,14 +143,18 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
 
 **cellphones rating.csv**
 
+
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 - Rating terendah adalah 1 dan rating tertinggi adalah 18
 - Rata-rata rating adalah 6.7. 
   
 **cellphones users.csv**
 
+
 <img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data users" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 Data Numerik:
 - age: Terdapat 99 data usia penggun dengan rata-rata usia pengguna adalah sekitar 36 tahun. Usia pengguna termuda adalah 21 tahun dan usia pengguna tertua adalah 61 tahun.
