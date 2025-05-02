@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-eiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang tersedia di pasar menjadi semakin banyak dan beragam. Setiap pengguna memiliki preferensi unik berdasarkan kebutuhan personal, seperti performa perangkat, kapasitas kamera, ukuran baterai, hingga harga. Akibatnya, konsumen kerap mengalami kesulitan dalam memilih smartphone yang paling sesuai dengan kebutuhan mereka. Oleh karena itu, sistem rekomendasi berbasis data menjadi solusi penting untuk membantu pengguna menemukan produk yang paling relevan dengan preferensi mereka. 
+Seiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang tersedia di pasar menjadi semakin banyak dan beragam. Setiap pengguna memiliki preferensi unik berdasarkan kebutuhan personal, seperti performa perangkat, kapasitas kamera, ukuran baterai, hingga harga. Akibatnya, konsumen kerap mengalami kesulitan dalam memilih smartphone yang paling sesuai dengan kebutuhan mereka. Oleh karena itu, sistem rekomendasi berbasis data menjadi solusi penting untuk membantu pengguna menemukan produk yang paling relevan dengan preferensi mereka. 
 
 Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
@@ -23,7 +23,7 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 
 ## Data Understanding
 ### Sumber data
-Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
+Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
 - cellphones data.csv: Berisi informasi mengenai 34 ponsel pintar populer di AS pada tahun 2022. Setiap ponsel memiliki 13 fitur utama, termasuk performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
 - cellphones users.csv: Mengandung informasi demografis pengguna yang berpartisipasi dalam survei, termasuk usia, jenis kelamin, dan pekerjaan.
 - cellphones ratings.csv: Berisi data rating yang diberikan oleh pengguna melalui survei di Mechanical Turk. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
