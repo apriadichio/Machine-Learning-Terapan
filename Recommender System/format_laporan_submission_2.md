@@ -548,7 +548,35 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
 )
 ```
 
+**Rekomendasi Collaborative Filltering**
+Menghasilkan rekomendasi HP yang dipersonalisasi untuk pengguna berdasarkan preferensi pengguna lain yang serupa, menggunakan model Neural Collaborative Filtering yang telah dilatih. Fungsi recommend_top_n_neural_cf_final_unique_simplified bertugas untuk menghasilkan Top-N rekomendasi HP untuk seorang pengguna berdasarkan model Neural Collaborative Filtering.
+
+```
+# Memprediksi item yang belum dirating oleh user
+user_input = np.expand_dims(np.array([user_index] * len(items_to_predict)), axis=1)
+item_input = np.expand_dims(items_to_predict, axis=1)
+predictions = model.predict(np.concatenate([user_input, item_input], axis=1))
+
+# Menyusun hasil rekomendasi
+top_n_indices = np.argsort(predictions, axis=0)[::-1][:top_n].flatten()
+
+```
+
 ## Evaluation
+
+### Evaluasi Content Base filltering
+
+Berdasarkan dua hasil top-N recommendation untuk pengguna dengan user_id = 1 dan user_id = 0, berikut adalah evaluasi yang dapat dipaparkan :
+
+
+<img src="https://github.com/user-attachments/assets/816d2b19-e182-4a68-88a9-24e34066923c" alt="id_1" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+
+<img src="https://github.com/user-attachments/assets/82204b6d-9983-497d-abd8-ca22dca539c4" alt="id_0" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+
+
+
 Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
 
 ```
