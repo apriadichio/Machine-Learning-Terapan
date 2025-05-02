@@ -369,11 +369,23 @@ Nilai unik kolom 'model' setelah menghapus tahun:
 ```
 
 **data preparation content based filltering**
+
 mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya dengn melakukan hal-hal berikut :
 - Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
 - Encoding Fitur Kategorikal menggunakan One-Hot Encoder
 
 <img src="https://github.com/user-attachments/assets/da8cbac9-1ad7-4c85-90c1-ca9cbe6a5ba2" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+
+**data preparation collaborative filtering**
+
+Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural network. Langkah-langkah utamanya adalah:
+
+- Mengubah ID pengguna dan item menjadi indeks numerik berurutan.
+- Membagi data menjadi set pelatihan dan pengujian.
+- Membuat TensorFlow Dataset yang efisien untuk memproses data selama pelatihan dan evaluasi model.
+- Menskalakan nilai rating ke rentang 0-1.
+
 
 ## Modeling
 
