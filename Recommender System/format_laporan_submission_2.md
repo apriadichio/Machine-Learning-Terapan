@@ -549,6 +549,7 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
 ```
 
 **Rekomendasi Collaborative Filltering**
+
 Menghasilkan rekomendasi HP yang dipersonalisasi untuk pengguna berdasarkan preferensi pengguna lain yang serupa, menggunakan model Neural Collaborative Filtering yang telah dilatih. Fungsi recommend_top_n_neural_cf_final_unique_simplified bertugas untuk menghasilkan Top-N rekomendasi HP untuk seorang pengguna berdasarkan model Neural Collaborative Filtering.
 
 ```
@@ -574,8 +575,17 @@ Berdasarkan dua hasil top-N recommendation untuk pengguna dengan user_id = 1 dan
 
 <img src="https://github.com/user-attachments/assets/82204b6d-9983-497d-abd8-ca22dca539c4" alt="id_0" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+### Kesimpulan
+Berdasarkan hasil top-N, sistem rekomendasi content-based berhasil memberikan rekomendasi yang sesuai dengan preferensi pengguna. Untuk User ID 0, sistem merekomendasikan lima model HP yang seluruhnya memiliki spesifikasi tinggi, terutama pada aspek performa, RAM, dan memori internal—selaras dengan profil pengguna yang menunjukkan preferensi terhadap perangkat dengan performa tinggi. Sementara itu, untuk User ID 1, meskipun profil pengguna menunjukkan kecenderungan terhadap perangkat kelas menengah, sistem tetap merekomendasikan lima model HP dengan spesifikasi yang masih relevan, namun beberapa di antaranya termasuk dalam kategori flagship. Secara keseluruhan, seluruh item yang direkomendasikan memiliki karakteristik yang masih sesuai dengan preferensi pengguna masing-masing, sehingga dapat disimpulkan bahwa precision sistem berada pada tingkat yang sangat baik, yakni 5/5 atau 100% untuk kedua pengguna.
 
 
+### Evaluasi Collaborative filltering
+
+Hasil top-10 recommendation berbabsi sistem rekomendasi Collaborative Filtering berbasis Neural Network, berikut adalah evaluasi yang dapat dipaparkan :
+
+<img src="https://github.com/user-attachments/assets/76ea16ff-b594-41dd-9b87-0828fa44db84" alt="top-10" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+berdasarkan prediksi kecocokan pengguna terhadap ponsel, dalam skala 0 hingga 1, dengan nilai lebih tinggi menunjukkan kecocokan yang lebih besar dengan preferensi pengguna. Sebagai contoh, ponsel pertama yang direkomendasikan adalah OnePlus 10 Pro, dengan prediksi rating 0.975440, yang menunjukkan bahwa ponsel ini memiliki tingkat kecocokan yang sangat tinggi dengan preferensi pengguna 245.
 
 Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
 
