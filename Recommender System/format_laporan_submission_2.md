@@ -508,12 +508,45 @@ selfie camera      0.351852
 dtype: float64
 ```
 
+**Rekomendasi Content Based**
+
+Setelah item-profile dan user-profile telah dihasilkan, maka akan dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan mengambil profil pengguna dan item kemudian menghitung kemiripan antara profil pengguna dan setiap item, dan mengembalikan daftar item yang paling mirip (dan belum di-rating oleh pengguna) sebagai rekomendasi.
+
+```
+similarity_scores = cosine_similarity([user_profile], item_profiles)[0]
+imilarity_df = pd.DataFrame({'model': item_profiles.index, 'similarity': similarity_scores})
+```
+
+
 ### Collaborative filtering
 
 Membangun model jaringan saraf (RecommenderNetV2) dengan lapisan embedding untuk pengguna dan item, diikuti oleh lapisan dense dengan aktivasi ReLU dan lapisan dropout. Model dilatih untuk memprediksi rating yang dinormalisasi (skala 0-1 setelah rating asli dibagi 10 dan diskalakan). Rekomendasi dihasilkan dengan memprediksi rating untuk item yang belum di-rating oleh pengguna dan memilih top-N dengan prediksi tertinggi.
 
-<img src="https://github.com/user-attachments/assets/2abb2bbf-9bff-4fb8-a2ee-b598c2046169" alt="model cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
+**modelling**
 
+RecommenderNetV2: Model Neural Collaborative Filtering (RecommenderNetV2) dirancang dengan pendekatan embedding untuk user dan item, lalu diproses melalui dua layer dense bertingkat yang masing-masing diikuti oleh dropout untuk mencegah overfitting. Model ini menggunakan aktivasi ReLU dan output akhir menggunakan fungsi sigmoid untuk prediksi rating. Regularisasi L2 juga diterapkan pada embedding untuk menjaga kestabilan pelatihan.
+
+```
+self.dense_1 = layers.Dense(hidden_units, activation='relu')
+self.dropout_1 = layers.Dropout(dropout_rate)
+self.dense_output = layers.Dense(1, activation='sigmoid')
+```
+
+**compile dan train**
+
+Menginstansiasi model RecommenderNetV2 dengan konfigurasi tertentu (ukuran embedding, jumlah hidden unit, dropout rate), mengompilasinya dengan optimizer, fungsi loss, dan metrik yang sesuai, serta melatihnya dengan data yang telah disiapkan menggunakan early stopping untuk mencegah overfitting dan mendapatkan model dengan kinerja terbaik.
+
+```
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(learning_rate=0.0005),
+    loss='mse',
+    metrics=[tf.keras.metrics.RootMeanSquaredError()]
+)
+
+early_stopping = tf.keras.callbacks.EarlyStopping(
+    monitor='val_loss', patience=5, restore_best_weights=True
+)
+```
 
 ## Evaluation
 Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
