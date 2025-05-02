@@ -381,10 +381,33 @@ mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
 
 Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural network. Langkah-langkah utamanya adalah:
 
-- Mengubah ID pengguna dan item menjadi indeks numerik berurutan.
-- Membagi data menjadi set pelatihan dan pengujian.
+- Mengubah ID pengguna dan item menjadi indeks numerik berurutan menggunakan LabelEncoder()
+  
+  ```
+  user_encoder = LabelEncoder()
+  df_preparation['user_index'] = user_encoder.fit_transform(df_preparation['user_id'])
+  item_encoder = LabelEncoder()
+  df_preparation['item_index'] = item_encoder.fit_transform(df_preparation['cellphone_id'])
+  ```
+  
+- Membagi data menjadi set pelatihan dan pengujian menggunakan train_test_split.
+  
+  ```
+  train_df, test_df = train_test_split(df_preparation, test_size=0.2, random_state=42)
+  ```
+  
 - Membuat TensorFlow Dataset yang efisien untuk memproses data selama pelatihan dan evaluasi model.
+  
+  ```
+  train_dataset = create_tf_dataset(train_df).batch(64).prefetch(tf.data.AUTOTUNE)
+  test_dataset = create_tf_dataset(test_df).batch(64).prefetch(tf.data.AUTOTUNE)
+  ```
+  
 - Menskalakan nilai rating ke rentang 0-1.
+  
+  ```
+  ratings = df['rating'].values.astype(np.float32) / 5.0
+  ```
 
 
 ## Modeling
