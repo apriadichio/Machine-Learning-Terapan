@@ -373,8 +373,7 @@ mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
 - Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
 - Encoding Fitur Kategorikal menggunakan One-Hot Encoder
 
-<img src="//github.com/user-attachments/assets/9d309fbc-7f89-4008-b40d-d6a867ee6dc7" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+<img src="https://github.com/user-attachments/assets/da8cbac9-1ad7-4c85-90c1-ca9cbe6a5ba2" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 ## Modeling
 
