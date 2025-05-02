@@ -414,7 +414,7 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
 
 ### Content-Based Filtering
 
-**Item-Profiel**
+**Item-Profile**
 
 Membuat profil item (ponsel) berdasarkan rata-rata fitur-fitur numerik yang telah di-scaling dan fitur kategorikal yang telah di-encode dengan dilakukan perhitungan untuk item profil (cellphone) untuk setiap model ponsel dengan mengambil rata-rata (mean) dari fitur-fitur numerik yang telah diproses sebelumnya (melalui one-hot encoding dan scaling). Profil pengguna dibuat berdasarkan rata-rata profil item yang telah diberi rating tinggi oleh pengguna. Rekomendasi dihasilkan berdasarkan cosine similarity antara profil pengguna dan profil semua item yang belum di-rating. Berikut adalah hasilnya
 
@@ -463,7 +463,52 @@ model
 Find X5 Pro                       1.0                   0.0 
 ```
 
-**collaborative filtering**
+
+
+**User-Profile**
+
+Membuat representasi numerik dari preferensi setiap pengguna berdasarkan item (dalam hal ini, ponsel) yang telah mereka beri rating tinggi. Untuk setiap pengguna dalam dataset, kode ini mencari item yang mereka beri rating tinggi. Kemudian,  dihitung rata-rata fitur-fitur dari item-item tersebut untuk membuat "profil" yang merepresentasikan apa yang disukai pengguna tersebut. Profil-profil ini kemudian disimpan untuk digunakan dalam merekomendasikan item baru kepada pengguna berdasarkan kemiripan fitur dengan profil mereka.
+
+```
+Hasil Beberapa Profil Pengguna (Content-Based) :
+User ID: 0, Profil:
+internal memory    0.333333
+RAM                0.444444
+performance        0.736974
+main camera        0.197917
+selfie camera      0.194444
+dtype: float64
+User ID: 1, Profil:
+internal memory    0.266667
+RAM                0.311111
+performance        0.360120
+main camera        0.211458
+selfie camera      0.161111
+dtype: float64
+User ID: 6, Profil:
+internal memory    0.142857
+RAM                0.269841
+performance        0.308331
+main camera        0.302083
+selfie camera      0.269841
+dtype: float64
+User ID: 8, Profil:
+internal memory    0.240000
+RAM                0.533333
+performance        0.597595
+main camera        0.429167
+selfie camera      0.355556
+dtype: float64
+User ID: 10, Profil:
+internal memory    0.318519
+RAM                0.530864
+performance        0.673013
+main camera        0.319444
+selfie camera      0.351852
+dtype: float64
+```
+
+### Collaborative filtering
 
 Membangun model jaringan saraf (RecommenderNetV2) dengan lapisan embedding untuk pengguna dan item, diikuti oleh lapisan dense dengan aktivasi ReLU dan lapisan dropout. Model dilatih untuk memprediksi rating yang dinormalisasi (skala 0-1 setelah rating asli dibagi 10 dan diskalakan). Rekomendasi dihasilkan dengan memprediksi rating untuk item yang belum di-rating oleh pengguna dan memilih top-N dengan prediksi tertinggi.
 
