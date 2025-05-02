@@ -33,6 +33,30 @@ Dataset yang digunakan dalam proyek ini adalah dataset https://www.kaggle.com/da
 Variabel-variabel pada dataset adalah sebagai berikut :
 
 **cellphones data.csv**
+
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 33 entries, 0 to 32
+Data columns (total 14 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   cellphone_id      33 non-null     int64  
+ 1   brand             33 non-null     object 
+ 2   model             33 non-null     object 
+ 3   operating system  33 non-null     object 
+ 4   internal memory   33 non-null     int64  
+ 5   RAM               33 non-null     int64  
+ 6   performance       33 non-null     float64
+ 7   main camera       33 non-null     int64  
+ 8   selfie camera     33 non-null     int64  
+ 9   battery size      33 non-null     int64  
+ 10  screen size       33 non-null     float64
+ 11  weight            33 non-null     int64  
+ 12  price             33 non-null     int64  
+ 13  release date      33 non-null     object 
+dtypes: float64(2), int64(8), object(4)
+memory usage: 3.7+ KB
+```
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - brand: Merek ponsel pintar.
 - model: Nama model ponsel pintar.
@@ -47,20 +71,53 @@ Variabel-variabel pada dataset adalah sebagai berikut :
 - weight: Berat ponsel (gram).
 - price: Harga ponsel (Dollar).
 - release date: Tanggal rilis ponsel.
+- tidak ditemukan adannya missing value.
   
 **cellphones rating.csv**
+
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 990 entries, 0 to 989
+Data columns (total 3 columns):
+ #   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   user_id       990 non-null    int64
+ 1   cellphone_id  990 non-null    int64
+ 2   rating        990 non-null    int64
+dtypes: int64(3)
+memory usage: 23.3 KB
+```
+
 - user_id: Identifikasi unik untuk setiap pengguna.
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - rating: Tingkat kemungkinan pembelian yang diberikan pengguna(1-10).
+- tidak ditemukan adanya missing value
 
 **cellphones users.csv**
+
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 99 entries, 0 to 98
+Data columns (total 4 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   user_id     99 non-null     int64 
+ 1   age         99 non-null     int64 
+ 2   gender      99 non-null     object
+ 3   occupation  98 non-null     object
+dtypes: int64(2), object(2)
+memory usage: 3.2+ KB
+```
+
 - user_id: Identifikasi unik untuk setiap pengguna.
 - age: Usia pengguna.
 - gender: Jenis kelamin pengguna.
 - occupation: Pekerjaan pengguna.
+- tidak ditemukan adanya missing value
 
-Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
+
 ### Analisis statistik deskriptif
+Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
 
 **cellphones data.csv**
