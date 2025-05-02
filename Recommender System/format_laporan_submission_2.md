@@ -412,17 +412,55 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
 
 ## Modeling
 
-**Content-Based Filtering**
+### Content-Based Filtering
 
-Membuat profil item (ponsel) berdasarkan rata-rata fitur-fitur numerik yang telah di-scaling dan fitur kategorikal yang telah di-encode. Profil pengguna dibuat berdasarkan rata-rata profil item yang telah diberi rating tinggi oleh pengguna. Rekomendasi dihasilkan berdasarkan cosine similarity antara profil pengguna dan profil semua item yang belum di-rating. Berikut adalah hasilnya
+**Item-Profiel**
+
+Membuat profil item (ponsel) berdasarkan rata-rata fitur-fitur numerik yang telah di-scaling dan fitur kategorikal yang telah di-encode dengan dilakukan perhitungan untuk item profil (cellphone) untuk setiap model ponsel dengan mengambil rata-rata (mean) dari fitur-fitur numerik yang telah diproses sebelumnya (melalui one-hot encoding dan scaling). Profil pengguna dibuat berdasarkan rata-rata profil item yang telah diberi rating tinggi oleh pengguna. Rekomendasi dihasilkan berdasarkan cosine similarity antara profil pengguna dan profil semua item yang belum di-rating. Berikut adalah hasilnya
+
+
 ```
-Rekomendasi Content-Based untuk User ID 1:
-            model  similarity
-3          12 Pro    0.298273
-13    Moto G Play    0.252409
-16  Moto G Stylus    0.251552
-22        Poco F4    0.242491
-24        X80 Pro    0.23719
+
+Profil Item (HP) untuk Content-Based Filtering:
+             internal memory       RAM  performance  main camera  \
+model                                                              
+10 Pro              0.200000  0.555556     0.785571     0.375000   
+10T                 0.200000  0.555556     1.000000     0.395833   
+11T Pro             0.466667  0.555556     0.658317     1.000000   
+12 Pro              0.200000  0.555556     0.884770     0.395833   
+Find X5 Pro         0.466667  1.000000     0.911824     0.395833   
+
+             selfie camera  battery size  screen size     price  brand_Apple  \
+model                                                                          
+10 Pro            0.777778      0.998995     0.689655  0.348315          0.0   
+10T               0.333333      0.931993     0.689655  0.278224          0.0   
+11T Pro           0.333333      0.998995     0.655172  0.163724          0.0   
+12 Pro            0.777778      0.864992     0.689655  0.261637          0.0   
+Find X5 Pro       0.777778      0.998995     0.689655  0.459069          0.0   
+
+             brand_Asus  brand_Google  brand_Motorola  brand_OnePlus  \
+model                                                                  
+10 Pro              0.0           0.0             0.0            1.0   
+10T                 0.0           0.0             0.0            1.0   
+11T Pro             0.0           0.0             0.0            0.0   
+12 Pro              0.0           0.0             0.0            0.0   
+Find X5 Pro         0.0           0.0             0.0            0.0   
+
+             brand_Oppo  brand_Samsung  brand_Sony  brand_Vivo  brand_Xiaomi  \
+model                                                                          
+10 Pro              0.0            0.0         0.0         0.0           0.0   
+10T                 0.0            0.0         0.0         0.0           0.0   
+11T Pro             0.0            0.0         0.0         0.0           1.0   
+12 Pro              0.0            0.0         0.0         0.0           1.0   
+Find X5 Pro         1.0            0.0         0.0         0.0           0.0   
+
+             operating system_Android  operating system_iOS  
+model                                                        
+10 Pro                            1.0                   0.0  
+10T                               1.0                   0.0  
+11T Pro                           1.0                   0.0  
+12 Pro                            1.0                   0.0  
+Find X5 Pro                       1.0                   0.0 
 ```
 
 **collaborative filtering**
