@@ -368,6 +368,14 @@ Nilai unik kolom 'model' setelah menghapus tahun:
  'Galaxy S22 Ultra' 'Redmi Note 11' '12 Pro' 'iPhone 13']
 ```
 
+**data preparation content based filltering**
+mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya dengn melakukan hal-hal berikut :
+- Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
+- Encoding Fitur Kategorikal menggunakan One-Hot Encoder
+
+<img src="//github.com/user-attachments/assets/9d309fbc-7f89-4008-b40d-d6a867ee6dc7" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+
 ## Modeling
 
 **Content-Based Filtering**
