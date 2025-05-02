@@ -575,7 +575,7 @@ Berdasarkan dua hasil top-N recommendation untuk pengguna dengan user_id = 1 dan
 
 <img src="https://github.com/user-attachments/assets/82204b6d-9983-497d-abd8-ca22dca539c4" alt="id_0" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
-### Kesimpulan
+### Kesimpulan 
 Berdasarkan hasil top-N, sistem rekomendasi content-based berhasil memberikan rekomendasi yang sesuai dengan preferensi pengguna. Untuk User ID 0, sistem merekomendasikan lima model HP yang seluruhnya memiliki spesifikasi tinggi, terutama pada aspek performa, RAM, dan memori internal—selaras dengan profil pengguna yang menunjukkan preferensi terhadap perangkat dengan performa tinggi. Sementara itu, untuk User ID 1, meskipun profil pengguna menunjukkan kecenderungan terhadap perangkat kelas menengah, sistem tetap merekomendasikan lima model HP dengan spesifikasi yang masih relevan, namun beberapa di antaranya termasuk dalam kategori flagship. Secara keseluruhan, seluruh item yang direkomendasikan memiliki karakteristik yang masih sesuai dengan preferensi pengguna masing-masing, sehingga dapat disimpulkan bahwa precision sistem berada pada tingkat yang sangat baik, yakni 5/5 atau 100% untuk kedua pengguna.
 
 
@@ -596,6 +596,25 @@ RMSE on test set (Neural CF): 0.8909
 
 berikut adalah hasil visualisasi dari proses pelatihan model
 <img src="https://github.com/user-attachments/assets/8c47b631-3c00-46f9-a37e-92711c7de88c" alt="eval cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
+### Kesimpulan 
+Penjelasan Metrik Evaluasi:
+Loss (0.7939):
+
+- Loss adalah ukuran seberapa jauh prediksi yang dihasilkan oleh model dari nilai yang sebenarnya. Dalam hal ini, loss mengukur kesalahan antara prediksi rating yang dihasilkan model untuk ponsel dan rating aktual yang diinginkan (dari data uji).
+- Semakin kecil nilai loss, semakin baik model dalam membuat prediksi yang sesuai dengan preferensi pengguna.
+- Dalam konteks ini, loss sebesar 0.7939 menunjukkan bahwa model memiliki tingkat kesalahan tertentu dalam memprediksi rating ponsel yang relevan untuk pengguna. Model ini bekerja dengan cukup baik, tetapi masih ada ruang untuk perbaikan agar lebih akurat.
+
+Root Mean Squared Error (RMSE) (0.8909):
+
+- RMSE adalah akar dari rata-rata kuadrat selisih antara prediksi dan nilai sebenarnya, yang memberikan gambaran yang lebih jelas tentang besarnya kesalahan prediksi.
+- Nilai RMSE yang lebih rendah menunjukkan bahwa model lebih baik dalam memprediksi rating atau preferensi pengguna. Dengan RMSE sebesar 0.8909, model ini menunjukkan kesalahan prediksi yang relatif kecil, tetapi masih ada perbedaan antara prediksi yang diberikan model dan preferensi sesungguhnya.
+- Dalam konteks rekomendasi ponsel, RMSE yang lebih rendah menunjukkan bahwa model bisa lebih akurat dalam merekomendasikan ponsel yang relevan berdasarkan pola preferensi pengguna lain.
+
+Model Collaborative Filtering berusaha memahami pola preferensi pengguna lain, yaitu dengan melihat bagaimana pengguna yang memiliki selera atau preferensi yang mirip memberikan rating pada ponsel. Semakin baik model dalam memprediksi rating ini (ditunjukkan dengan nilai loss dan RMSE yang rendah), semakin relevan rekomendasi ponsel yang diberikan kepada pengguna tertentu.
+
+Metrik seperti loss dan RMSE mencerminkan seberapa baik model memahami preferensi pengguna berdasarkan data yang ada. Jika loss dan RMSE semakin kecil, ini berarti model lebih berhasil dalam meniru pola preferensi pengguna lain dan memberikan rekomendasi ponsel yang sesuai dengan keinginan pengguna. Sebaliknya, nilai yang lebih tinggi menunjukkan bahwa rekomendasi yang dihasilkan masih bisa ditingkatkan untuk lebih mencocokkan selera pengguna.
+
 
 
 
