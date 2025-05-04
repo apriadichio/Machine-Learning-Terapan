@@ -375,8 +375,8 @@ Nilai unik kolom 'model' setelah menghapus tahun:
 **DATA PREPARATION CONTENT BASED**
 
 mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya dengn melakukan hal-hal berikut :
-- Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
 - Encoding Fitur Kategorikal menggunakan One-Hot Encoder
+- Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
 
 <img src="https://github.com/user-attachments/assets/da8cbac9-1ad7-4c85-90c1-ca9cbe6a5ba2" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
