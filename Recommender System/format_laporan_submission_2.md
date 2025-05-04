@@ -122,7 +122,7 @@ Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data s
 
 ### cellphones data.csv
 
-<img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="Hasil describe() data hp" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="hp_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 Data Numerik:
 - internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
@@ -141,19 +141,18 @@ Data Kategorikal:
 - operating system: Sistem operasi ponsel. Terdapat 2 sistem operasi unik, dengan "Android" menjadi yang paling sering muncul (27 kali).
 release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, dengan "24/09/2021" menjadi tanggal yang paling sering muncul (4 kali).
 
-**cellphones rating.csv**
 
+### cellphones rating.csv
 
-<img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="Hasil descrribe() data rating" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+<img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="rating_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 - Rating terendah adalah 1 dan rating tertinggi adalah 18
-- Rata-rata rating adalah 6.7. 
+- Rata-rata rating adalah 6.7.
   
-**cellphones users.csv**
+  
+### cellphones users.csv
 
-
-<img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="Hasil descrribe() data users" style="float: left; margin-right: 15px; width: auto; height: auto;">
+<img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="user_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 Data Numerik:
