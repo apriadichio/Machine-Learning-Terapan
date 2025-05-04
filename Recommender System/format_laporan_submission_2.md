@@ -24,9 +24,9 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 ## Data Understanding
 ### Sumber data
 Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
-- cellphones data.csv: Berisi informasi mengenai 33 ponsel pintar populer di AS pada tahun 2022. Setiap ponsel memiliki 14 fitur utama, seperti performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
-- cellphones users.csv: Mengandung informasi pengguna seperti usia, jenis kelamin, dan pekerjaan.
-- cellphones ratings.csv: Berisi data rating yang diberikan oleh pengguna. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
+- cellphones data.csv: Berisi informasi mengenai 33 ponsel pintar populer di AS pada tahun 2022. Terdapat 14 fitur pada dataset ini, seperti performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
+- cellphones users.csv: Mengandung informasi mengenai 99 pengguna seperti usia, jenis kelamin, dan pekerjaan.
+- cellphones ratings.csv: Berisi 990 data rating yang diberikan oleh pengguna. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
 
 ### Informasi variabel masing-masing data
 
@@ -120,7 +120,7 @@ memory usage: 3.2+ KB
 Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
 
-**cellphones data.csv**
+### cellphones data.csv
 
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="Hasil describe() data hp" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
