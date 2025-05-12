@@ -597,25 +597,30 @@ top_n_indices = np.argsort(predictions, axis=0)[::-1][:top_n].flatten()
 
 ## Evaluation
 
+
 ### Evaluasi Content Base filltering
-
-Berdasarkan dua hasil top-N recommendation untuk pengguna dengan user_id = 1 dan user_id = 0, berikut adalah evaluasi yang dapat dipaparkan :
-
-
-<img src="https://github.com/user-attachments/assets/816d2b19-e182-4a68-88a9-24e34066923c" alt="id_1" style="float: left; margin-right: 15px; width: auto; height: auto;">
+Evaluasi sistem rekomendasi Content Base filltering dilakukan menggunakan metrik Precision@5, yang mengukur seberapa banyak dari lima rekomendasi teratas yang benar-benar relevan untuk pengguna. Dalam konteks ini, relevansi ditentukan berdasarkan apakah pengguna sebelumnya pernah memberikan rating tinggi (≥7) untuk ponsel yang juga muncul dalam hasil rekomendasi. 
 
 
-<img src="https://github.com/user-attachments/assets/82204b6d-9983-497d-abd8-ca22dca539c4" alt="id_0" style="float: left; margin-right: 15px; width: auto; height: auto;">
+```
+Precision@5 Rata-rata: 0.20404040404040408
+```
+
 
 ### Kesimpulan 
-Berdasarkan hasil top-N, sistem rekomendasi content-based berhasil memberikan rekomendasi yang sesuai dengan preferensi pengguna. Untuk User ID 0, sistem merekomendasikan lima model HP yang seluruhnya memiliki spesifikasi tinggi, terutama pada aspek performa, RAM, dan memori internal—selaras dengan profil pengguna yang menunjukkan preferensi terhadap perangkat dengan performa tinggi. Sementara itu, untuk User ID 1, meskipun profil pengguna menunjukkan kecenderungan terhadap perangkat kelas menengah, sistem tetap merekomendasikan lima model HP dengan spesifikasi yang masih relevan, namun beberapa di antaranya termasuk dalam kategori flagship. Secara keseluruhan, seluruh item yang direkomendasikan memiliki karakteristik yang masih sesuai dengan preferensi pengguna masing-masing, sehingga dapat disimpulkan bahwa precision sistem berada pada tingkat yang sangat baik, yakni 5/5 atau 100% untuk kedua pengguna.
+
+
+Dari hasil evaluasi, diperoleh Precision@5 rata-rata sebesar 0.204, yang berarti sekitar 20% dari rekomendasi yang diberikan tergolong relevan secara personalisasi. Ini memberikan gambaran awal terhadap efektivitas sistem rekomendasi berbasis konten, dimana hal ini menunjukkan bahwa sistem merekomendasikan sekitar 1 dari 5 ponsel dengan tepat, berdasarkan preferensi pengguna sebelumnya.
 
 
 ### Evaluasi Collaborative filltering
 
-Hasil top-10 recommendation berbabsi sistem rekomendasi Collaborative Filtering berbasis Neural Network, berikut adalah evaluasi yang dapat dipaparkan :
+
+Evaluasi sistem rekomendasi dilakukan menggunakan metrik Precision@5, yang mengukur seberapa banyak dari lima rekomendasi teratas yang benar-benar relevan untuk pengguna. Dalam konteks ini, relevansi ditentukan berdasarkan apakah pengguna sebelumnya pernah memberikan rating tinggi (≥7) untuk ponsel yang juga muncul dalam hasil rekomendasi.
+
 
 <img src="https://github.com/user-attachments/assets/76ea16ff-b594-41dd-9b87-0828fa44db84" alt="top-10" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 berdasarkan prediksi kecocokan pengguna terhadap ponsel, dalam skala 0 hingga 1, dengan nilai lebih tinggi menunjukkan kecocokan yang lebih besar dengan preferensi pengguna. Sebagai contoh, ponsel pertama yang direkomendasikan adalah OnePlus 10 Pro, dengan prediksi rating 0.975440, yang menunjukkan bahwa ponsel ini memiliki tingkat kecocokan yang sangat tinggi dengan preferensi pengguna 245.
 
@@ -631,6 +636,8 @@ RMSE on test set (Neural CF): 0.8909
 
 
 berikut adalah hasil visualisasi dari proses pelatihan model
+
+
 <img src="https://github.com/user-attachments/assets/8c47b631-3c00-46f9-a37e-92711c7de88c" alt="eval cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
