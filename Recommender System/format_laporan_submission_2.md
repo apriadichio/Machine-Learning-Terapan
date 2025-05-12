@@ -1,25 +1,33 @@
 # Laporan Proyek Machine Learning - Marchio Apriadi
 
+
 ## Project Overview
+
 
 Seiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang tersedia di pasar menjadi semakin banyak dan beragam. Setiap pengguna memiliki preferensi unik berdasarkan kebutuhan personal, seperti performa perangkat, kapasitas kamera, ukuran baterai, hingga harga. Akibatnya, konsumen kerap mengalami kesulitan dalam memilih smartphone yang paling sesuai dengan kebutuhan mereka. Oleh karena itu, sistem rekomendasi berbasis data menjadi solusi penting untuk membantu pengguna menemukan produk yang paling relevan dengan preferensi mereka. 
 
+
 Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
+
 ## Business Understanding
+
 
 ### Problem Statements
 - **Tantangan Personalisasi Fitur Ponsel:** Bagaimana cara merekomendasikan ponsel pintar berdasarkan kemiripan fitur dengan preferensi pengguna sebelumnya?
 - **Tantangan Personalisasi Penjualan** Bagaimana pola preferensi pengguna lain dapat membantu merekomendasikan ponsel pintar yang relevan?
+  
   
 ### Goals
 - Dengan menganalisis fitur-fitur ponsel pintar yang paling disukai oleh pengguna dan pola preferensi mereka, dapat membantu dalam pengembangan sistem rekomendasi berbasis fitur yang lebih baik dan sesuai dengan minat penggguna
 - Analisis pola interaksi dan rating antar pengguna terhadap berbagai ponsel pintar dapat memberikan gambaran tentang preferensi kolektif dan kemiripan selera, sehingga dapat membantu dalam pengembangan sistem rekomendasi yang lebih efektif dan mengikuti preferensi pengguna lain yang serupa.
 - Penyajian rekomendasi ponsel pintar yang dipersonalisasi berdasarkan kedua pendekatan dapat memberikan nilai tambah bagi pengguna dalam menemukan perangkat yang relevan dengan kebutuhan dan preferensi mereka.
   
+  
 ### Solution statements
 - Content-Based Filtering: Menganalisis fitur-fitur ponsel (merek, spesifikasi, harga, dll.) dan riwayat rating pengguna untuk merekomendasikan ponsel yang serupa dengan yang telah disukai pengguna.
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
+  
 
 ## Data Understanding
 ### Sumber data
@@ -587,21 +595,28 @@ Hasil top-10 recommendation berbabsi sistem rekomendasi Collaborative Filtering 
 
 berdasarkan prediksi kecocokan pengguna terhadap ponsel, dalam skala 0 hingga 1, dengan nilai lebih tinggi menunjukkan kecocokan yang lebih besar dengan preferensi pengguna. Sebagai contoh, ponsel pertama yang direkomendasikan adalah OnePlus 10 Pro, dengan prediksi rating 0.975440, yang menunjukkan bahwa ponsel ini memiliki tingkat kecocokan yang sangat tinggi dengan preferensi pengguna 245.
 
+
 Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
+
+
 
 ```
 Loss on test set (Neural CF): 0.7939
 RMSE on test set (Neural CF): 0.8909
 ```
 
+
 berikut adalah hasil visualisasi dari proses pelatihan model
 <img src="https://github.com/user-attachments/assets/8c47b631-3c00-46f9-a37e-92711c7de88c" alt="eval cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+
 ### Kesimpulan 
+
+
 Penjelasan Metrik Evaluasi:
 
-Loss (0.7939):
 
+Loss (0.7939):
 - Loss adalah ukuran seberapa jauh prediksi yang dihasilkan oleh model dari nilai yang sebenarnya. Dalam hal ini, loss mengukur kesalahan antara prediksi rating yang dihasilkan model untuk ponsel dan rating aktual yang diinginkan (dari data uji).
 - Semakin kecil nilai loss, semakin baik model dalam membuat prediksi yang sesuai dengan preferensi pengguna.
 - Dalam konteks ini, loss sebesar 0.7939 menunjukkan bahwa model memiliki tingkat kesalahan tertentu dalam memprediksi rating ponsel yang relevan untuk pengguna. Model ini bekerja dengan cukup baik, tetapi masih ada ruang untuk perbaikan agar lebih akurat.
