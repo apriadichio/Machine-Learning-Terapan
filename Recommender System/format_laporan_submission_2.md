@@ -523,110 +523,31 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
 
 ## Model Development
 
+
 ### Content-Based Filtering
 
-**Item-Profile**
 
-Membuat profil item (ponsel) berdasarkan rata-rata fitur-fitur numerik yang telah di-scaling dan fitur kategorikal yang telah di-encode dengan dilakukan perhitungan untuk item profil (cellphone) untuk setiap model ponsel dengan mengambil rata-rata (mean) dari fitur-fitur numerik yang telah diproses sebelumnya (melalui one-hot encoding dan scaling). Profil pengguna dibuat berdasarkan rata-rata profil item yang telah diberi rating tinggi oleh pengguna. Rekomendasi dihasilkan berdasarkan cosine similarity antara profil pengguna dan profil semua item yang belum di-rating. Berikut adalah hasilnya
+**Model-Development**
+
+
+Membangun fungsi rekomendasi menggunakan Fungsi recommend()  untuk memberikan rekomendasi ponsel yang paling mirip dengan ponsel tertentu berdasarkan cellphone_id. Sistem ini menggunakan pendekatan Content-Based Filtering dengan mengukur kemiripan fitur antar ponsel menggunakan Cosine Similarity. Fungsi ini mencari ponsel yang paling relevan dari segi spesifikasi dan mengembalikan daftar ponsel yang paling mirip.
 
 
 ```
-
-Profil Item (HP) untuk Content-Based Filtering:
-             internal memory       RAM  performance  main camera  \
-model                                                              
-10 Pro              0.200000  0.555556     0.785571     0.375000   
-10T                 0.200000  0.555556     1.000000     0.395833   
-11T Pro             0.466667  0.555556     0.658317     1.000000   
-12 Pro              0.200000  0.555556     0.884770     0.395833   
-Find X5 Pro         0.466667  1.000000     0.911824     0.395833   
-
-             selfie camera  battery size  screen size     price  brand_Apple  \
-model                                                                          
-10 Pro            0.777778      0.998995     0.689655  0.348315          0.0   
-10T               0.333333      0.931993     0.689655  0.278224          0.0   
-11T Pro           0.333333      0.998995     0.655172  0.163724          0.0   
-12 Pro            0.777778      0.864992     0.689655  0.261637          0.0   
-Find X5 Pro       0.777778      0.998995     0.689655  0.459069          0.0   
-
-             brand_Asus  brand_Google  brand_Motorola  brand_OnePlus  \
-model                                                                  
-10 Pro              0.0           0.0             0.0            1.0   
-10T                 0.0           0.0             0.0            1.0   
-11T Pro             0.0           0.0             0.0            0.0   
-12 Pro              0.0           0.0             0.0            0.0   
-Find X5 Pro         0.0           0.0             0.0            0.0   
-
-             brand_Oppo  brand_Samsung  brand_Sony  brand_Vivo  brand_Xiaomi  \
-model                                                                          
-10 Pro              0.0            0.0         0.0         0.0           0.0   
-10T                 0.0            0.0         0.0         0.0           0.0   
-11T Pro             0.0            0.0         0.0         0.0           1.0   
-12 Pro              0.0            0.0         0.0         0.0           1.0   
-Find X5 Pro         1.0            0.0         0.0         0.0           0.0   
-
-             operating system_Android  operating system_iOS  
-model                                                        
-10 Pro                            1.0                   0.0  
-10T                               1.0                   0.0  
-11T Pro                           1.0                   0.0  
-12 Pro                            1.0                   0.0  
-Find X5 Pro                       1.0                   0.0 
+idx = df_unique_phones[df_unique_phones['cellphone_id'] == cellphone_id].index[0]
+sim_scores = list(enumerate(similarity_matrix[idx]))
+sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:top_n+1]
+recommended_indices = [i[0] for i in sim_scores]
 ```
 
-
-
-**User-Profile**
-
-Membuat representasi numerik dari preferensi setiap pengguna berdasarkan item (dalam hal ini, ponsel) yang telah mereka beri rating tinggi. Untuk setiap pengguna dalam dataset, kode ini mencari item yang mereka beri rating tinggi. Kemudian,  dihitung rata-rata fitur-fitur dari item-item tersebut untuk membuat "profil" yang merepresentasikan apa yang disukai pengguna tersebut. Profil-profil ini kemudian disimpan untuk digunakan dalam merekomendasikan item baru kepada pengguna berdasarkan kemiripan fitur dengan profil mereka.
-
-```
-Hasil Beberapa Profil Pengguna (Content-Based) :
-User ID: 0, Profil:
-internal memory    0.333333
-RAM                0.444444
-performance        0.736974
-main camera        0.197917
-selfie camera      0.194444
-dtype: float64
-User ID: 1, Profil:
-internal memory    0.266667
-RAM                0.311111
-performance        0.360120
-main camera        0.211458
-selfie camera      0.161111
-dtype: float64
-User ID: 6, Profil:
-internal memory    0.142857
-RAM                0.269841
-performance        0.308331
-main camera        0.302083
-selfie camera      0.269841
-dtype: float64
-User ID: 8, Profil:
-internal memory    0.240000
-RAM                0.533333
-performance        0.597595
-main camera        0.429167
-selfie camera      0.355556
-dtype: float64
-User ID: 10, Profil:
-internal memory    0.318519
-RAM                0.530864
-performance        0.673013
-main camera        0.319444
-selfie camera      0.351852
-dtype: float64
-```
 
 **Rekomendasi Content Based**
 
-Setelah item-profile dan user-profile telah dihasilkan, maka akan dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan mengambil profil pengguna dan item kemudian menghitung kemiripan antara profil pengguna dan setiap item, dan mengembalikan daftar item yang paling mirip (dan belum di-rating oleh pengguna) sebagai rekomendasi.
 
-```
-similarity_scores = cosine_similarity([user_profile], item_profiles)[0]
-imilarity_df = pd.DataFrame({'model': item_profiles.index, 'similarity': similarity_scores})
-```
+Dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan memanggil kembali fungsi recommend() untuk mendapatkan top-N cellphone yang memiliki kemiripan fitur yang serupa. Berikut adalah hasilnya (unutk cellphone_id = 11)
+
+
+<img src="https://github.com/user-attachments/assets/af939a9b-a2f1-4a60-83a0-4a214f118564" alt="cb_rec" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
 ### Collaborative filtering
