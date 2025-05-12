@@ -488,6 +488,7 @@ Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
 <img src="https://github.com/user-attachments/assets/24cabd53-80f8-46e2-a299-448a117cc769" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
 
+
 **DATA PREPARATION COLLABORATIVE FILLTERING**
 
 
