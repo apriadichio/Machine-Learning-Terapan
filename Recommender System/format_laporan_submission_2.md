@@ -434,6 +434,8 @@ Nilai unik kolom 'model' setelah menghapus tahun:
 
 
 Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya. Beberapa proses yang dilakukan adalah :
+
+
 - Penghapusan duplikasi berdasarkan spesifikasi, karena satu ponsel bisa muncul beberapa kali dari user berbeda.
 
 
@@ -500,12 +502,14 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
   item_encoder = LabelEncoder()
   df_preparation['item_index'] = item_encoder.fit_transform(df_preparation['cellphone_id'])
   ```
+
   
 - Membagi data menjadi set pelatihan dan pengujian menggunakan train_test_split.
   
   ```
   train_df, test_df = train_test_split(df_preparation, test_size=0.2, random_state=42)
   ```
+
   
 - Membuat TensorFlow Dataset yang efisien untuk memproses data selama pelatihan dan evaluasi model.
   
@@ -513,6 +517,7 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
   train_dataset = create_tf_dataset(train_df).batch(64).prefetch(tf.data.AUTOTUNE)
   test_dataset = create_tf_dataset(test_df).batch(64).prefetch(tf.data.AUTOTUNE)
   ```
+
   
 - Menskalakan nilai rating ke rentang 0-1.
   
@@ -552,11 +557,15 @@ Dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan m
 
 ### Collaborative filtering
 
+
 Membangun model jaringan saraf (RecommenderNetV2) dengan lapisan embedding untuk pengguna dan item, diikuti oleh lapisan dense dengan aktivasi ReLU dan lapisan dropout. Model dilatih untuk memprediksi rating yang dinormalisasi (skala 0-1 setelah rating asli dibagi 10 dan diskalakan). Rekomendasi dihasilkan dengan memprediksi rating untuk item yang belum di-rating oleh pengguna dan memilih top-N dengan prediksi tertinggi.
+
 
 **modelling**
 
+
 RecommenderNetV2: Model Neural Collaborative Filtering (RecommenderNetV2) dirancang dengan pendekatan embedding untuk user dan item, lalu diproses melalui dua layer dense bertingkat yang masing-masing diikuti oleh dropout untuk mencegah overfitting. Model ini menggunakan aktivasi ReLU dan output akhir menggunakan fungsi sigmoid untuk prediksi rating. Regularisasi L2 juga diterapkan pada embedding untuk menjaga kestabilan pelatihan.
+
 
 ```
 self.dense_1 = layers.Dense(hidden_units, activation='relu')
@@ -564,9 +573,12 @@ self.dropout_1 = layers.Dropout(dropout_rate)
 self.dense_output = layers.Dense(1, activation='sigmoid')
 ```
 
+
 **compile dan train**
 
+
 Menginstansiasi model RecommenderNetV2 dengan konfigurasi tertentu (ukuran embedding, jumlah hidden unit, dropout rate), mengompilasinya dengan optimizer, fungsi loss, dan metrik yang sesuai, serta melatihnya dengan data yang telah disiapkan menggunakan early stopping untuk mencegah overfitting dan mendapatkan model dengan kinerja terbaik.
+
 
 ```
 model.compile(
@@ -580,9 +592,12 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
 )
 ```
 
+
 **Rekomendasi Collaborative Filltering**
 
+
 Menghasilkan rekomendasi HP yang dipersonalisasi untuk pengguna berdasarkan preferensi pengguna lain yang serupa, menggunakan model Neural Collaborative Filtering yang telah dilatih. Fungsi recommend_top_n_neural_cf_final_unique_simplified bertugas untuk menghasilkan Top-N rekomendasi HP untuk seorang pengguna berdasarkan model Neural Collaborative Filtering.
+
 
 ```
 # Memprediksi item yang belum dirating oleh user
@@ -595,10 +610,13 @@ top_n_indices = np.argsort(predictions, axis=0)[::-1][:top_n].flatten()
 
 ```
 
+
 ## Evaluation
 
 
 ### Evaluasi Content Base filltering
+
+
 Evaluasi sistem rekomendasi Content Base filltering dilakukan menggunakan metrik Precision@5, yang mengukur seberapa banyak dari lima rekomendasi teratas yang benar-benar relevan untuk pengguna. Dalam konteks ini, relevansi ditentukan berdasarkan apakah pengguna sebelumnya pernah memberikan rating tinggi (≥7) untuk ponsel yang juga muncul dalam hasil rekomendasi. 
 
 
@@ -651,14 +669,16 @@ Loss (0.7939):
 - Loss adalah ukuran seberapa jauh prediksi yang dihasilkan oleh model dari nilai yang sebenarnya. Dalam hal ini, loss mengukur kesalahan antara prediksi rating yang dihasilkan model untuk ponsel dan rating aktual yang diinginkan (dari data uji).
 - Semakin kecil nilai loss, semakin baik model dalam membuat prediksi yang sesuai dengan preferensi pengguna.
 - Dalam konteks ini, loss sebesar 0.7939 menunjukkan bahwa model memiliki tingkat kesalahan tertentu dalam memprediksi rating ponsel yang relevan untuk pengguna. Model ini bekerja dengan cukup baik, tetapi masih ada ruang untuk perbaikan agar lebih akurat.
+  
 
 Root Mean Squared Error (RMSE) (0.8909):
-
 - RMSE adalah akar dari rata-rata kuadrat selisih antara prediksi dan nilai sebenarnya, yang memberikan gambaran yang lebih jelas tentang besarnya kesalahan prediksi.
 - Nilai RMSE yang lebih rendah menunjukkan bahwa model lebih baik dalam memprediksi rating atau preferensi pengguna. Dengan RMSE sebesar 0.8909, model ini menunjukkan kesalahan prediksi yang relatif kecil, tetapi masih ada perbedaan antara prediksi yang diberikan model dan preferensi sesungguhnya.
 - Dalam konteks rekomendasi ponsel, RMSE yang lebih rendah menunjukkan bahwa model bisa lebih akurat dalam merekomendasikan ponsel yang relevan berdasarkan pola preferensi pengguna lain.
 
+
 Model Collaborative Filtering berusaha memahami pola preferensi pengguna lain, yaitu dengan melihat bagaimana pengguna yang memiliki selera atau preferensi yang mirip memberikan rating pada ponsel. Semakin baik model dalam memprediksi rating ini (ditunjukkan dengan nilai loss dan RMSE yang rendah), semakin relevan rekomendasi ponsel yang diberikan kepada pengguna tertentu.
+
 
 Metrik seperti loss dan RMSE mencerminkan seberapa baik model memahami preferensi pengguna berdasarkan data yang ada. Jika loss dan RMSE semakin kecil, ini berarti model lebih berhasil dalam meniru pola preferensi pengguna lain dan memberikan rekomendasi ponsel yang sesuai dengan keinginan pengguna. Sebaliknya, nilai yang lebih tinggi menunjukkan bahwa rekomendasi yang dihasilkan masih bisa ditingkatkan untuk lebih mencocokkan selera pengguna.
 
