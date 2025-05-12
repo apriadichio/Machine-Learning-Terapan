@@ -30,7 +30,11 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
   
 
 ## Data Understanding
+
+
 ### Sumber data
+
+
 Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
 - cellphones data.csv: Berisi informasi mengenai 33 ponsel pintar populer di AS pada tahun 2022. Terdapat 14 fitur pada dataset ini, seperti performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
 - cellphones users.csv: Mengandung informasi mengenai 99 pengguna seperti usia, jenis kelamin, dan pekerjaan.
@@ -38,7 +42,9 @@ Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/
 
 ### Informasi variabel masing-masing data
 
+
 Variabel-variabel pada dataset adalah sebagai berikut :
+
 
 **cellphones data.csv**
 
@@ -81,6 +87,7 @@ memory usage: 3.7+ KB
 - release date: Tanggal rilis ponsel.
 - tidak ditemukan adannya missing value.
   
+  
 **cellphones rating.csv**
 
 ```
@@ -100,6 +107,7 @@ memory usage: 23.3 KB
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - rating: Tingkat kemungkinan pembelian yang diberikan pengguna(1-10).
 - tidak ditemukan adanya missing value
+  
 
 **cellphones users.csv**
 
@@ -125,11 +133,17 @@ memory usage: 3.2+ KB
 
 
 ### Analisis statistik deskriptif
+
+
 Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
 
+
 ### cellphones data.csv
+
+
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="hp_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 Data Numerik:
 - internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
@@ -150,17 +164,24 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
 
 
 ### cellphones rating.csv
+
+
 <img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="rating_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 - Rating terendah adalah 1 dan rating tertinggi adalah 18
 - Rata-rata rating adalah 6.7.
   
   
 ### cellphones users.csv
+
+
 <img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="user_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+
 
 Data Numerik:
 - age: Terdapat 99 data usia penggun dengan rata-rata usia pengguna adalah sekitar 36 tahun. Usia pengguna termuda adalah 21 tahun dan usia pengguna tertua adalah 61 tahun.
+  
 
 Data Kategorikal
 - gender: Terdapat 3 kategori jenis kelamin yang berbeda. Kategori jenis kelamin yang paling sering muncul adalah "Male" (Laki-laki) sebanyak 50 kali.
@@ -168,6 +189,7 @@ Data Kategorikal
 
 
 ### uniqe_values
+
 
 **cellphones data.csv**
 ```
@@ -236,6 +258,7 @@ Kolom 'release date':
  '22/02/2022']
 ```
 
+
 **cellphones rating.csv**
 ```
 Nilai unik dari DataFrame 'rating':
@@ -255,6 +278,7 @@ Kolom 'cellphone_id':
 Kolom 'rating':
 [ 1  3  9  2 10  8  7  5  6  4 18]
 ```
+
 
 **cellphones users.csv**
 ```
@@ -290,6 +314,7 @@ Kolom 'occupation':
  'MANAGER' 'HEALTHCARE' 'Computer technician' 'Executive Manager']
 ```
 
+
 berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan untuk proses selanjutnya:
 - fitur rating, terdapat nilai 18 (seharusnya max 10)
 - fitur model, terdapat inkonsistensi pada data karena adanya penggunaan tahun walaupun fitur releas date sudah ada
@@ -300,14 +325,22 @@ berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan 
 
 
 ## Data Preparation
+
+
 ### merge data
+
+
 Penggabungan data ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation
+
 
 <img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
+
 ### Perbaikan beberapa fitur
 
+
 **fitur rating**
+
 
 Membatasi nilai dalam kolom 'rating' antara 1 dan 10 dengan fungsi clip()
 ```
@@ -323,27 +356,39 @@ max       10.000000
 Name: rating, dtype: float6
 ```
 
+
 **Fitur Gender**
 
+
 Nilai '-Select Gender-' kemungkinan merupakan nilai placeholder atau nilai default yang muncul ketika pengguna tidak memilih jenis kelamin secara spesifik. Menggantinya dengan 'Unknown' menciptakan representasi yang lebih standar dan konsisten untuk data yang tidak teridentifikasi\.
+
+
 ```
 df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', 'Unknown')
 
 ['Female' 'Male' 'Unknown']
 ```
 
+
 **Fitur Occupation**
 
+
 Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam kategori yang lebih umum dan terstruktur. Ini dilakukan dengan menggunakan sebuah mapping dictionary (occupation_mapping). Berikut adalah hasil akhirnya
+
+
 ```
 ['Data analyst' 'IT' 'Manager' 'Other' 'Finance' 'Sales' 'ICT Officer'
  'Healthcare' 'Executive' 'Unknown' 'Technical Engineer' 'Admin'
  'Marketing' 'Education' 'Technical' 'Transportation']
 ```
 
+
 **fitur release date**
 
+
 Selanjutnya adalah melakukan perubahan format data pada kolom 'release date' menjadi tipe data datetime yang dikenali oleh Pandas dengan menggunakan fungsi to_datetime(). Berikut adalah hasilnya
+
+
 ```
 Nilai unik dan tipe data kolom 'release date' setelah konversi:
 <DatetimeArray>
@@ -360,11 +405,15 @@ Length: 26, dtype: datetime64[ns]
 datetime64[ns]
 ```
 
+
 **fitur model**
+
 
 membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
 - Mengganti non-breaking space : Menggantinya dengan spasi biasa memastikan konsistensi dan mencegah kesalahan saat membandingkan atau menganalisis nama model.
 - Menghapus informasi tahun yang berada di dalam tanda kurung: membersihkan nama model dari informasi tahun rilis, yang sebenarnya sudah ada di fitur release date
+
+
 ```
 Nilai unik kolom 'model' setelah menghapus tahun:
 ['Moto G Play' 'iPhone XR' 'Galaxy S22' 'Galaxy A53' 'X80 Pro'
@@ -376,11 +425,16 @@ Nilai unik kolom 'model' setelah menghapus tahun:
  'Galaxy S22 Ultra' 'Redmi Note 11' '12 Pro' 'iPhone 13']
 ```
 
+
 **DATA PREPARATION CONTENT BASED**
 
-mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya dengn melakukan hal-hal berikut :
-- Encoding Fitur Kategorikal menggunakan One-Hot Encoder
+
+mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya. Beberapa hal penting yang dapat kita amati:
+- Penggabungan kolom brand, model, dan operating system menjadi satu teks untuk mewakili fitur kategorikal.
+- fitur kategorika diubah menjadi vektor angka menggunakan TfidfVectorizer.
 - Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan MinMaxScaler.
+- menggabungkan hasil TF-IDF (teks) dan fitur numerik menjadi satu vektor menggunakan hstack()
+
 
 <img src="https://github.com/user-attachments/assets/da8cbac9-1ad7-4c85-90c1-ca9cbe6a5ba2" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
