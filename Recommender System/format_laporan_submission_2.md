@@ -439,47 +439,47 @@ Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
 - Penghapusan duplikasi berdasarkan spesifikasi, karena satu ponsel bisa muncul beberapa kali dari user berbeda.
 
 
-```
-phone_cols = ['cellphone_id', 'brand', 'model', 'operating system', 'internal memory',
-              'RAM', 'performance', 'main camera', 'selfie camera', 'battery size',
-              'screen size', 'weight', 'price']
-
-df_unique_phones = df[phone_cols].drop_duplicates().reset_index(drop=True)
-```
+  ```
+  phone_cols = ['cellphone_id', 'brand', 'model', 'operating system', 'internal memory',
+                'RAM', 'performance', 'main camera', 'selfie camera', 'battery size',
+                'screen size', 'weight', 'price']
+  
+  df_unique_phones = df[phone_cols].drop_duplicates().reset_index(drop=True)
+  ```
 
   
 - Penggabungan kolom brand, model, dan operating system menjadi satu teks untuk mewakili fitur kategorikal.
 
-
-```
-df_unique_phones['combined_text'] = df_unique_phones[['brand', 'model', 'operating system']].agg(' '.join, axis=1)
-```
+  
+  ```
+  df_unique_phones['combined_text'] = df_unique_phones[['brand', 'model', 'operating system']].agg(' '.join, axis=1)
+  ```
 
 
 - fitur kategorikal diubah menjadi vektor angka menggunakan TfidfVectorizer.
 
 
-```
-tfidf = TfidfVectorizer()
-X_text = tfidf.fit_transform(df_unique_phones['combined_text'])
-```
+  ```
+  tfidf = TfidfVectorizer()
+  X_text = tfidf.fit_transform(df_unique_phones['combined_text'])
+  ```
 
 
 - Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan StandardScaler.
 
 
-```
-scaler = StandardScaler()
-X_num = scaler.fit_transform(df_unique_phones[numeric_features])
-```
+  ```
+  scaler = StandardScaler()
+  X_num = scaler.fit_transform(df_unique_phones[numeric_features])
+  ```
 
 
 - menggabungkan hasil TF-IDF (teks) dan fitur numerik menjadi satu vektor menggunakan hstack()
 
-
-```
-X_all = hstack([X_text, X_num])
-```
+  
+  ```
+  X_all = hstack([X_text, X_num])
+  ```
 
 
 - Mengambil indeks dari ponsel yang paling mirip berdasarkan urutan skor similarity.
