@@ -616,7 +616,7 @@ Dari hasil evaluasi, diperoleh Precision@5 rata-rata sebesar 0.204, yang berarti
 ### Evaluasi Collaborative filltering
 
 
-Evaluasi sistem rekomendasi dilakukan menggunakan metrik Precision@5, yang mengukur seberapa banyak dari lima rekomendasi teratas yang benar-benar relevan untuk pengguna. Dalam konteks ini, relevansi ditentukan berdasarkan apakah pengguna sebelumnya pernah memberikan rating tinggi (≥7) untuk ponsel yang juga muncul dalam hasil rekomendasi.
+Hasil top-10 recommendation berbasis sistem rekomendasi Collaborative Filtering berbasis Neural Network, berikut adalah evaluasi yang dapat dipaparkan :
 
 
 <img src="https://github.com/user-attachments/assets/76ea16ff-b594-41dd-9b87-0828fa44db84" alt="top-10" style="float: left; margin-right: 15px; width: auto; height: auto;">
