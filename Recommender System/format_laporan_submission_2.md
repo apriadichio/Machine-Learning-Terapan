@@ -5,7 +5,9 @@ Seiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang t
 
 Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
+
 ## Business Understanding
+
 ### Problem Statements
 - **Tantangan Personalisasi Fitur Ponsel:** Bagaimana cara merekomendasikan ponsel pintar berdasarkan kemiripan fitur dengan preferensi pengguna sebelumnya?
 - **Tantangan Personalisasi Penjualan** Bagaimana pola preferensi pengguna lain dapat membantu merekomendasikan ponsel pintar yang relevan?
@@ -18,8 +20,10 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 ### Solution statements
 - Content-Based Filtering: Menganalisis fitur-fitur ponsel (merek, spesifikasi, harga, dll.) dan riwayat rating pengguna untuk merekomendasikan ponsel yang serupa dengan yang telah disukai pengguna.
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
-  
+
+
 ## Data Understanding
+
 ### Sumber data
 Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
 - cellphones data.csv: Berisi informasi mengenai 33 ponsel pintar populer di AS pada tahun 2022. Terdapat 14 fitur pada dataset ini, seperti performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
@@ -107,7 +111,6 @@ memory usage: 3.2+ KB
 - occupation: Pekerjaan pengguna.
 - tidak ditemukan adanya missing value
 
-
 ### Analisis statistik deskriptif
 Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
@@ -115,7 +118,6 @@ Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data s
 ### cellphones data.csv
 
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="hp_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
 
 Data Numerik:
 - internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
