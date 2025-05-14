@@ -2,8 +2,8 @@
 
 ## Project Overview
 Seiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang tersedia di pasar menjadi semakin banyak dan beragam. Setiap pengguna memiliki preferensi unik berdasarkan kebutuhan personal, seperti performa perangkat, kapasitas kamera, ukuran baterai, hingga harga. Akibatnya, konsumen kerap mengalami kesulitan dalam memilih smartphone yang paling sesuai dengan kebutuhan mereka. Oleh karena itu, sistem rekomendasi berbasis data menjadi solusi penting untuk membantu pengguna menemukan produk yang paling relevan dengan preferensi mereka. 
-Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
+Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
 ## Business Understanding
 ### Problem Statements
@@ -19,7 +19,6 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 - Content-Based Filtering: Menganalisis fitur-fitur ponsel (merek, spesifikasi, harga, dll.) dan riwayat rating pengguna untuk merekomendasikan ponsel yang serupa dengan yang telah disukai pengguna.
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
   
-
 ## Data Understanding
 ### Sumber data
 Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
