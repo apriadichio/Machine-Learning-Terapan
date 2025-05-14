@@ -159,6 +159,7 @@ Data Kategorikal
 ### uniqe_values
 
 **cellphones data.csv**
+
 ```
 Nilai unik dari DataFrame 'cellphones':
 
@@ -188,9 +189,7 @@ Kolom 'release date':
  '22/02/2022']
 ```
 
-
 **cellphones rating.csv**
-
 
 ```
 Nilai unik dari DataFrame 'rating':
@@ -198,7 +197,6 @@ Nilai unik dari DataFrame 'rating':
 Kolom 'rating':
 [ 1  3  9  2 10  8  7  5  6  4 18]
 ```
-
 
 **cellphones users.csv**
 
@@ -240,15 +238,11 @@ berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan 
 ### merge all data
 Penggabungan **seluruh fitur data** dari 3 dataset (cellphone,rating dan user) ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation.
 
-
-<img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+![image](https://github.com/user-attachments/assets/828510c6-0569-4a79-8611-977624b9b961)
 
 ### Perbaikan beberapa fitur
 
-
 **fitur rating**
-
 
 Membatasi nilai dalam kolom 'rating' antara 1 dan 10 dengan fungsi clip()
 ```
@@ -264,12 +258,9 @@ max       10.000000
 Name: rating, dtype: float6
 ```
 
-
 **Fitur Gender**
 
-
 Nilai '-Select Gender-' kemungkinan merupakan nilai placeholder atau nilai default yang muncul ketika pengguna tidak memilih jenis kelamin secara spesifik. Menggantinya dengan 'Unknown' menciptakan representasi yang lebih standar dan konsisten untuk data yang tidak teridentifikasi\.
-
 
 ```
 df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', 'Unknown')
@@ -277,12 +268,9 @@ df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', '
 ['Female' 'Male' 'Unknown']
 ```
 
-
 **Fitur Occupation**
 
-
 Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam kategori yang lebih umum dan terstruktur. Ini dilakukan dengan menggunakan sebuah mapping dictionary (occupation_mapping). Berikut adalah hasil akhirnya
-
 
 ```
 ['Data analyst' 'IT' 'Manager' 'Other' 'Finance' 'Sales' 'ICT Officer'
@@ -290,12 +278,9 @@ Mengelompokkan dan menstandarkan berbagai jenis pekerjaan (occupation) ke dalam 
  'Marketing' 'Education' 'Technical' 'Transportation']
 ```
 
-
 **fitur release date**
 
-
 Selanjutnya adalah melakukan perubahan format data pada kolom 'release date' menjadi tipe data datetime yang dikenali oleh Pandas dengan menggunakan fungsi to_datetime(). Berikut adalah hasilnya
-
 
 ```
 Nilai unik dan tipe data kolom 'release date' setelah konversi:
@@ -313,14 +298,11 @@ Length: 26, dtype: datetime64[ns]
 datetime64[ns]
 ```
 
-
 **fitur model**
-
 
 membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
 - Mengganti non-breaking space : Menggantinya dengan spasi biasa memastikan konsistensi dan mencegah kesalahan saat membandingkan atau menganalisis nama model.
 - Menghapus informasi tahun yang berada di dalam tanda kurung: membersihkan nama model dari informasi tahun rilis, yang sebenarnya sudah ada di fitur release date
-
 
 ```
 Nilai unik kolom 'model' setelah menghapus tahun:
@@ -333,12 +315,9 @@ Nilai unik kolom 'model' setelah menghapus tahun:
  'Galaxy S22 Ultra' 'Redmi Note 11' '12 Pro' 'iPhone 13']
 ```
 
-
 **DATA PREPARATION CONTENT BASED**
 
-
 Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya. Beberapa proses yang dilakukan adalah :
-
 
 - Penghapusan duplikasi berdasarkan spesifikasi, karena satu ponsel bisa muncul beberapa kali dari user berbeda.
 
@@ -350,54 +329,40 @@ Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
   
   df_unique_phones = df[phone_cols].drop_duplicates().reset_index(drop=True)
   ```
-
   
 - Penggabungan kolom brand, model, dan operating system menjadi satu teks untuk mewakili fitur kategorikal.
 
-  
   ```
   df_unique_phones['combined_text'] = df_unique_phones[['brand', 'model', 'operating system']].agg(' '.join, axis=1)
   ```
 
-
 - fitur kategorikal diubah menjadi vektor angka menggunakan TfidfVectorizer.
-
 
   ```
   tfidf = TfidfVectorizer()
   X_text = tfidf.fit_transform(df_unique_phones['combined_text'])
   ```
 
-
 - Fitur Numerik yang Di-scaling sehingga memiliki nilai dalam rentang antara 0 dan 1 dengan menggunakan StandardScaler.
-
 
   ```
   scaler = StandardScaler()
   X_num = scaler.fit_transform(df_unique_phones[numeric_features])
   ```
 
-
 - menggabungkan hasil TF-IDF (teks) dan fitur numerik menjadi satu vektor menggunakan hstack()
 
-  
   ```
   X_all = hstack([X_text, X_num])
   ```
 
-
 - Mengambil indeks dari ponsel yang paling mirip berdasarkan urutan skor similarity.
 
-
-<img src="https://github.com/user-attachments/assets/24cabd53-80f8-46e2-a299-448a117cc769" alt="cb_process" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-
+![image](https://github.com/user-attachments/assets/63d29bb1-8b7b-4294-8d08-6174659c17cf)
 
 **DATA PREPARATION COLLABORATIVE FILLTERING**
 
-
 Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural network. Langkah-langkah utamanya adalah:
-
 
 - Mengubah ID pengguna dan item menjadi indeks numerik berurutan menggunakan LabelEncoder()
   
@@ -407,14 +372,12 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
   item_encoder = LabelEncoder()
   df_preparation['item_index'] = item_encoder.fit_transform(df_preparation['cellphone_id'])
   ```
-
   
 - Membagi data menjadi set pelatihan dan pengujian menggunakan train_test_split.
   
   ```
   train_df, test_df = train_test_split(df_preparation, test_size=0.2, random_state=42)
   ```
-
   
 - Membuat TensorFlow Dataset yang efisien untuk memproses data selama pelatihan dan evaluasi model.
   
@@ -422,7 +385,6 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
   train_dataset = create_tf_dataset(train_df).batch(64).prefetch(tf.data.AUTOTUNE)
   test_dataset = create_tf_dataset(test_df).batch(64).prefetch(tf.data.AUTOTUNE)
   ```
-
   
 - Menskalakan nilai rating ke rentang 0-1.
   
@@ -433,15 +395,11 @@ Mempersiapkan data untuk tugas collaborative filtering menggunakan model neural 
 
 ## Model Development
 
-
 ### Content-Based Filtering
-
 
 **Model-Development**
 
-
 Membangun fungsi rekomendasi menggunakan Fungsi recommend()  untuk memberikan rekomendasi ponsel yang paling mirip dengan ponsel tertentu berdasarkan cellphone_id. Sistem ini menggunakan pendekatan Content-Based Filtering dengan mengukur kemiripan fitur antar ponsel menggunakan Cosine Similarity. Fungsi ini mencari ponsel yang paling relevan dari segi spesifikasi dan mengembalikan daftar ponsel yang paling mirip.
-
 
 ```
 idx = df_unique_phones[df_unique_phones['cellphone_id'] == cellphone_id].index[0]
@@ -450,15 +408,11 @@ sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:top_n+1]
 recommended_indices = [i[0] for i in sim_scores]
 ```
 
-
 **Rekomendasi Content Based**
-
 
 Dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan memanggil kembali fungsi recommend() untuk mendapatkan top-N cellphone yang memiliki kemiripan fitur yang serupa. Berikut adalah hasilnya (unutk cellphone_id = 11)
 
-
 <img src="https://github.com/user-attachments/assets/af939a9b-a2f1-4a60-83a0-4a214f118564" alt="cb_rec" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
 
 ### Collaborative filtering
 
