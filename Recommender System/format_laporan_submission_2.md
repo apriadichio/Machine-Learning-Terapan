@@ -358,7 +358,7 @@ Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filteri
 
 - Mengambil indeks dari ponsel yang paling mirip berdasarkan urutan skor similarity.
 
-![image](https://github.com/user-attachments/assets/63d29bb1-8b7b-4294-8d08-6174659c17cf)
+  ![image](https://github.com/user-attachments/assets/63d29bb1-8b7b-4294-8d08-6174659c17cf)
 
 **DATA PREPARATION COLLABORATIVE FILLTERING**
 
