@@ -27,13 +27,9 @@ Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/
 - cellphones ratings.csv: Berisi 990 data rating yang diberikan oleh pengguna. Setiap peserta melihat 10 ponsel acak dan memberikan rating seberapa besar kemungkinan mereka akan membeli setiap ponsel dengan harga yang diberikan, pada skala 1 (sangat tidak mungkin) hingga 10 (sangat mungkin).
 
 ### Informasi variabel masing-masing data
-
-
 Variabel-variabel pada dataset adalah sebagai berikut :
 
-
 **cellphones data.csv**
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 33 entries, 0 to 32
@@ -72,10 +68,8 @@ memory usage: 3.7+ KB
 - price: Harga ponsel (Dollar).
 - release date: Tanggal rilis ponsel.
 - tidak ditemukan adannya missing value.
-  
-  
+   
 **cellphones rating.csv**
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 990 entries, 0 to 989
@@ -88,15 +82,12 @@ Data columns (total 3 columns):
 dtypes: int64(3)
 memory usage: 23.3 KB
 ```
-
 - user_id: Identifikasi unik untuk setiap pengguna.
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - rating: Tingkat kemungkinan pembelian yang diberikan pengguna(1-10).
 - tidak ditemukan adanya missing value
   
-
 **cellphones users.csv**
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 99 entries, 0 to 98
@@ -110,7 +101,6 @@ Data columns (total 4 columns):
 dtypes: int64(2), object(2)
 memory usage: 3.2+ KB
 ```
-
 - user_id: Identifikasi unik untuk setiap pengguna.
 - age: Usia pengguna.
 - gender: Jenis kelamin pengguna.
@@ -119,14 +109,10 @@ memory usage: 3.2+ KB
 
 
 ### Analisis statistik deskriptif
-
-
 Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
 Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
 
-
 ### cellphones data.csv
-
 
 <img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="hp_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
 
