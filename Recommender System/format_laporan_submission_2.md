@@ -34,6 +34,7 @@ Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/
 Variabel-variabel pada dataset adalah sebagai berikut :
 
 **cellphones data.csv**
+
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 33 entries, 0 to 32
@@ -57,6 +58,7 @@ Data columns (total 14 columns):
 dtypes: float64(2), int64(8), object(4)
 memory usage: 3.7+ KB
 ```
+
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - brand: Merek ponsel pintar.
 - model: Nama model ponsel pintar.
@@ -74,6 +76,7 @@ memory usage: 3.7+ KB
 - tidak ditemukan adannya missing value.
    
 **cellphones rating.csv**
+
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 990 entries, 0 to 989
@@ -86,12 +89,14 @@ Data columns (total 3 columns):
 dtypes: int64(3)
 memory usage: 23.3 KB
 ```
+
 - user_id: Identifikasi unik untuk setiap pengguna.
 - cellphone_id: Identifikasi unik untuk setiap ponsel pintar.
 - rating: Tingkat kemungkinan pembelian yang diberikan pengguna(1-10).
 - tidak ditemukan adanya missing value
   
 **cellphones users.csv**
+
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 99 entries, 0 to 98
@@ -105,6 +110,7 @@ Data columns (total 4 columns):
 dtypes: int64(2), object(2)
 memory usage: 3.2+ KB
 ```
+
 - user_id: Identifikasi unik untuk setiap pengguna.
 - age: Usia pengguna.
 - gender: Jenis kelamin pengguna.
@@ -112,8 +118,7 @@ memory usage: 3.2+ KB
 - tidak ditemukan adanya missing value
 
 ### Analisis statistik deskriptif
-Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data 
-Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data seperti berikut :
+Pada tahapan ini dilakukan Analisis statistik deskriptif (mean, median, standar deviasi, dll.) dan juga Pengecekan Unique Value untuk mendapatkan pemahaman tentang karakteristik data dengan menggunakan fungsi describe(), berikut adalah hasil yang didapatkan pada masing-masing data :
 
 ### cellphones data.csv
 
@@ -143,7 +148,6 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
 - Rating terendah adalah 1 dan rating tertinggi adalah 18
 - Rata-rata rating adalah 6.7.
   
-  
 ### cellphones users.csv
 
 ![image](https://github.com/user-attachments/assets/67a61673-e13f-4e1b-a052-0214871074ff)
@@ -154,7 +158,6 @@ Data Numerik:
 Data Kategorikal
 - gender: Terdapat 3 kategori jenis kelamin yang berbeda. Kategori jenis kelamin yang paling sering muncul adalah "Male" (Laki-laki) sebanyak 50 kali.
 - occupation: Terdapat 56 jenis pekerjaan yang berbeda. Pekerjaan yang paling sering muncul adalah "Information Technology" (Teknologi Informasi) sebanyak 10 kali.
-
 
 ### uniqe_values
 
@@ -263,8 +266,6 @@ Name: rating, dtype: float6
 Nilai '-Select Gender-' kemungkinan merupakan nilai placeholder atau nilai default yang muncul ketika pengguna tidak memilih jenis kelamin secara spesifik. Menggantinya dengan 'Unknown' menciptakan representasi yang lebih standar dan konsisten untuk data yang tidak teridentifikasi\.
 
 ```
-df_preparation['gender'] = df_preparation['gender'].replace('-Select Gender-', 'Unknown')
-
 ['Female' 'Male' 'Unknown']
 ```
 
@@ -320,7 +321,6 @@ Nilai unik kolom 'model' setelah menghapus tahun:
 Mempersiapkan data agar sesuai untuk digunakan dalam model Content-Based Filtering. Fokusnya adalah pada pembuatan representasi fitur untuk setiap item (ponsel) berdasarkan atribut-atributnya. Beberapa proses yang dilakukan adalah :
 
 - Penghapusan duplikasi berdasarkan spesifikasi, karena satu ponsel bisa muncul beberapa kali dari user berbeda.
-
 
   ```
   phone_cols = ['cellphone_id', 'brand', 'model', 'operating system', 'internal memory',
@@ -412,16 +412,13 @@ recommended_indices = [i[0] for i in sim_scores]
 
 Dilakukan pengimplementasian sistem rekomendasi content-based filtering dengan memanggil kembali fungsi recommend() untuk mendapatkan top-N cellphone yang memiliki kemiripan fitur yang serupa. Berikut adalah hasilnya (unutk cellphone_id = 11)
 
-<img src="https://github.com/user-attachments/assets/af939a9b-a2f1-4a60-83a0-4a214f118564" alt="cb_rec" style="float: left; margin-right: 15px; width: auto; height: auto;">
+![image](https://github.com/user-attachments/assets/cd5e1437-0dbb-48bf-99d7-fdc254f6d071)
 
 ### Collaborative filtering
 
-
 Membangun model jaringan saraf (RecommenderNetV2) dengan lapisan embedding untuk pengguna dan item, diikuti oleh lapisan dense dengan aktivasi ReLU dan lapisan dropout. Model dilatih untuk memprediksi rating yang dinormalisasi (skala 0-1 setelah rating asli dibagi 10 dan diskalakan). Rekomendasi dihasilkan dengan memprediksi rating untuk item yang belum di-rating oleh pengguna dan memilih top-N dengan prediksi tertinggi.
 
-
 **modelling**
-
 
 RecommenderNetV2: Model Neural Collaborative Filtering (RecommenderNetV2) dirancang dengan pendekatan embedding untuk user dan item, lalu diproses melalui dua layer dense bertingkat yang masing-masing diikuti oleh dropout untuk mencegah overfitting. Model ini menggunakan aktivasi ReLU dan output akhir menggunakan fungsi sigmoid untuk prediksi rating. Regularisasi L2 juga diterapkan pada embedding untuk menjaga kestabilan pelatihan.
 
@@ -432,12 +429,9 @@ self.dropout_1 = layers.Dropout(dropout_rate)
 self.dense_output = layers.Dense(1, activation='sigmoid')
 ```
 
-
 **compile dan train**
 
-
 Menginstansiasi model RecommenderNetV2 dengan konfigurasi tertentu (ukuran embedding, jumlah hidden unit, dropout rate), mengompilasinya dengan optimizer, fungsi loss, dan metrik yang sesuai, serta melatihnya dengan data yang telah disiapkan menggunakan early stopping untuk mencegah overfitting dan mendapatkan model dengan kinerja terbaik.
-
 
 ```
 model.compile(
@@ -451,12 +445,9 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
 )
 ```
 
-
 **Rekomendasi Collaborative Filltering**
 
-
 Menghasilkan rekomendasi HP yang dipersonalisasi untuk pengguna berdasarkan preferensi pengguna lain yang serupa, menggunakan model Neural Collaborative Filtering yang telah dilatih. Fungsi recommend_top_n_neural_cf_final_unique_simplified bertugas untuk menghasilkan Top-N rekomendasi HP untuk seorang pengguna berdasarkan model Neural Collaborative Filtering.
-
 
 ```
 # Memprediksi item yang belum dirating oleh user
@@ -469,75 +460,55 @@ top_n_indices = np.argsort(predictions, axis=0)[::-1][:top_n].flatten()
 
 ```
 
+Hasil top-10 recommendation berbasis sistem rekomendasi Collaborative Filtering berbasis Neural Network
+
+![image](https://github.com/user-attachments/assets/ec35b45a-423c-4ceb-98fa-d83a74fd69ac)
+
+berdasarkan prediksi kecocokan pengguna terhadap ponsel, dalam skala 0 hingga 1, dengan nilai lebih tinggi menunjukkan kecocokan yang lebih besar dengan preferensi pengguna. Sebagai contoh, ponsel pertama yang direkomendasikan adalah OnePlus 10 Pro, dengan prediksi rating 0.975440, yang menunjukkan bahwa ponsel ini memiliki tingkat kecocokan yang sangat tinggi dengan preferensi pengguna 245.
+
 
 ## Evaluation
 
-
 ### Evaluasi Content Base filltering
 
-
 Evaluasi sistem rekomendasi Content Base filltering dilakukan menggunakan metrik Precision@5, yang mengukur seberapa banyak dari lima rekomendasi teratas yang benar-benar relevan untuk pengguna. Dalam konteks ini, relevansi ditentukan berdasarkan apakah pengguna sebelumnya pernah memberikan rating tinggi (≥7) untuk ponsel yang juga muncul dalam hasil rekomendasi. 
-
 
 ```
 Precision@5 Rata-rata: 0.20404040404040408
 ```
 
-
-### Kesimpulan 
-
+### Kesimpulan Evaluasi Content Base Filltering
 
 Dari hasil evaluasi, diperoleh Precision@5 rata-rata sebesar 0.204, yang berarti sekitar 20% dari rekomendasi yang diberikan tergolong relevan secara personalisasi. Ini memberikan gambaran awal terhadap efektivitas sistem rekomendasi berbasis konten, dimana hal ini menunjukkan bahwa sistem merekomendasikan sekitar 1 dari 5 ponsel dengan tepat, berdasarkan preferensi pengguna sebelumnya.
 
-
 ### Evaluasi Collaborative filltering
 
-
-Hasil top-10 recommendation berbasis sistem rekomendasi Collaborative Filtering berbasis Neural Network, berikut adalah evaluasi yang dapat dipaparkan :
-
-
-<img src="https://github.com/user-attachments/assets/76ea16ff-b594-41dd-9b87-0828fa44db84" alt="top-10" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
-
-berdasarkan prediksi kecocokan pengguna terhadap ponsel, dalam skala 0 hingga 1, dengan nilai lebih tinggi menunjukkan kecocokan yang lebih besar dengan preferensi pengguna. Sebagai contoh, ponsel pertama yang direkomendasikan adalah OnePlus 10 Pro, dengan prediksi rating 0.975440, yang menunjukkan bahwa ponsel ini memiliki tingkat kecocokan yang sangat tinggi dengan preferensi pengguna 245.
-
-
 Kinerja model Neural CF dievaluasi menggunakan Loss dan Root Mean Squared Error (RMSE) pada set pengujian, yang mengukur perbedaan antara rating prediksi dan rating sebenarnya (setelah diskalakan).
-
-
 
 ```
 Loss on test set (Neural CF): 0.7939
 RMSE on test set (Neural CF): 0.8909
 ```
 
-
 berikut adalah hasil visualisasi dari proses pelatihan model
 
-
-<img src="https://github.com/user-attachments/assets/8c47b631-3c00-46f9-a37e-92711c7de88c" alt="eval cf" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+![image](https://github.com/user-attachments/assets/9c24650f-a56e-4b6d-b455-552862b59512)
 
 ### Kesimpulan 
 
-
 Penjelasan Metrik Evaluasi:
-
 
 Loss (0.7939):
 - Loss adalah ukuran seberapa jauh prediksi yang dihasilkan oleh model dari nilai yang sebenarnya. Dalam hal ini, loss mengukur kesalahan antara prediksi rating yang dihasilkan model untuk ponsel dan rating aktual yang diinginkan (dari data uji).
 - Semakin kecil nilai loss, semakin baik model dalam membuat prediksi yang sesuai dengan preferensi pengguna.
 - Dalam konteks ini, loss sebesar 0.7939 menunjukkan bahwa model memiliki tingkat kesalahan tertentu dalam memprediksi rating ponsel yang relevan untuk pengguna. Model ini bekerja dengan cukup baik, tetapi masih ada ruang untuk perbaikan agar lebih akurat.
   
-
 Root Mean Squared Error (RMSE) (0.8909):
 - RMSE adalah akar dari rata-rata kuadrat selisih antara prediksi dan nilai sebenarnya, yang memberikan gambaran yang lebih jelas tentang besarnya kesalahan prediksi.
 - Nilai RMSE yang lebih rendah menunjukkan bahwa model lebih baik dalam memprediksi rating atau preferensi pengguna. Dengan RMSE sebesar 0.8909, model ini menunjukkan kesalahan prediksi yang relatif kecil, tetapi masih ada perbedaan antara prediksi yang diberikan model dan preferensi sesungguhnya.
 - Dalam konteks rekomendasi ponsel, RMSE yang lebih rendah menunjukkan bahwa model bisa lebih akurat dalam merekomendasikan ponsel yang relevan berdasarkan pola preferensi pengguna lain.
 
-
 Model Collaborative Filtering berusaha memahami pola preferensi pengguna lain, yaitu dengan melihat bagaimana pengguna yang memiliki selera atau preferensi yang mirip memberikan rating pada ponsel. Semakin baik model dalam memprediksi rating ini (ditunjukkan dengan nilai loss dan RMSE yang rendah), semakin relevan rekomendasi ponsel yang diberikan kepada pengguna tertentu.
-
 
 Metrik seperti loss dan RMSE mencerminkan seberapa baik model memahami preferensi pengguna berdasarkan data yang ada. Jika loss dan RMSE semakin kecil, ini berarti model lebih berhasil dalam meniru pola preferensi pengguna lain dan memberikan rekomendasi ponsel yang sesuai dengan keinginan pengguna. Sebaliknya, nilai yang lebih tinggi menunjukkan bahwa rekomendasi yang dihasilkan masih bisa ditingkatkan untuk lebih mencocokkan selera pengguna.
 
