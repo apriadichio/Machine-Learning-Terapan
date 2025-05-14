@@ -158,14 +158,9 @@ Data Kategorikal
 
 ### uniqe_values
 
-
 **cellphones data.csv**
 ```
 Nilai unik dari DataFrame 'cellphones':
-
-Kolom 'cellphone_id':
-[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
- 24 25 26 27 28 29 30 31 32]
 
 Kolom 'brand':
 ['Apple' 'Asus' 'Samsung' 'Google' 'OnePlus' 'Oppo' 'Vivo' 'Xiaomi' 'Sony'
@@ -184,39 +179,6 @@ Kolom 'model':
 Kolom 'operating system':
 ['iOS' 'Android']
 
-Kolom 'internal memory':
-[128 256  64  32 512]
-
-Kolom 'RAM':
-[ 4  6  3  8 12]
-
-Kolom 'performance':
-[ 7.23  7.72  7.75  7.94  8.01  4.22  6.76  1.36  2.2   3.79  8.81  7.22
-  9.68  5.96  6.35  6.88  7.19  3.8   6.04  8.86 11.   10.12  9.81  2.44
-  7.59  9.85  6.98  6.82  2.3   1.42  1.02  1.35]
-
-Kolom 'main camera':
-[ 12  64  50  48 108  13]
-
-Kolom 'selfie camera':
-[ 7 12  8 13 32 10 40  4 11 16 20  5]
-
-Kolom 'battery size':
-[2018 2438 3240 3065 4352 2942 4000 5000 3700 4500 3300 4400 4614 4410
- 5003 4800 4700 4600]
-
-Kolom 'screen size':
-[4.7 5.4 6.1 6.7 5.9 6.6 6.5 6.8 7.6 6.4]
-
-Kolom 'weight':
-[144 141 174 204 240 194 169 196 205 189 167 195 228 183 271 207 178 210
- 173 190 201 218 215 179 225 188 203]
-
-Kolom 'price':
-[ 429  699  999 1199  236  599  154  199  312  528  899  840 1799  499
-  449  299  379  780  649  987  872  174  435  618  428 1998  500  159
-  129  189]
-
 Kolom 'release date':
 ['18/03/2022' '24/09/2021' '26/10/2018' '12/05/2021' '23/03/2022'
  '22/01/2021' '24/03/2022' '25/02/2022' '11/08/2021' '28/10/2021'
@@ -233,18 +195,6 @@ Kolom 'release date':
 ```
 Nilai unik dari DataFrame 'rating':
 
-Kolom 'user_id':
-[  0   1   6   8  10  12  16  24  25  26  27  28  29  30  32  33  35  36
-  37  38  52  53  56  60  74  79  80  84  85  91  95  98  99 100 104 105
- 106 110 111 112 113 114 115 116 119 120 123 124 126 128 129 137 140 142
- 143 144 145 148 152 154 156 160 162 164 169 178 183 194 200 203 204 208
- 211 215 226 227 230 231 232 233 234 235 236 237 238 240 242 243 244 245
- 246 251 252 253 254 255 256 257 258]
-
-Kolom 'cellphone_id':
-[30  5 10  9 23  8 22 16 19  3  7 31 18 32 28 15  4 13  1 27 29 25 20  0
- 11 17 21  6 14 12 24 26  2]
-
 Kolom 'rating':
 [ 1  3  9  2 10  8  7  5  6  4 18]
 ```
@@ -254,14 +204,6 @@ Kolom 'rating':
 
 ```
 Nilai unik dari DataFrame 'users':
-
-Kolom 'user_id':
-[  0   1   6   8  10  12  16  24  25  26  27  28  29  30  32  33  35  36
-  37  38  52  53  56  60  74  79  80  84  85  91  95  98  99 100 104 105
- 106 110 111 112 113 114 115 116 119 120 123 124 126 128 129 137 140 142
- 143 144 145 148 152 154 156 160 162 164 169 178 183 194 200 203 204 208
- 211 215 226 227 230 231 232 233 234 235 236 237 238 240 242 243 244 245
- 246 251 252 253 254 255 256 257 258]
 
 Kolom 'age':
 [38 40 55 25 23 28 31 57 27 29 33 61 34 39 30 41 42 50 48 43 32 36 37 56
@@ -285,7 +227,6 @@ Kolom 'occupation':
  'MANAGER' 'HEALTHCARE' 'Computer technician' 'Executive Manager']
 ```
 
-
 berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan untuk proses selanjutnya:
 - fitur rating, terdapat nilai 18 (seharusnya max 10)
 - fitur model, terdapat inkonsistensi pada data karena adanya penggunaan tahun walaupun fitur releas date sudah ada
@@ -294,13 +235,9 @@ berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan 
 - fitur occupation, banyak nya nilai uniqe yang bermakna sama dan juga banyak data yang tidak konsisten.
 
 
-
 ## Data Preparation
 
-
 ### merge all data
-
-
 Penggabungan **seluruh fitur data** dari 3 dataset (cellphone,rating dan user) ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation.
 
 
