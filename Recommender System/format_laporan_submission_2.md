@@ -2,8 +2,6 @@
 
 ## Project Overview
 Seiring dengan pesatnya perkembangan teknologi smartphone, pilihan produk yang tersedia di pasar menjadi semakin banyak dan beragam. Setiap pengguna memiliki preferensi unik berdasarkan kebutuhan personal, seperti performa perangkat, kapasitas kamera, ukuran baterai, hingga harga. Akibatnya, konsumen kerap mengalami kesulitan dalam memilih smartphone yang paling sesuai dengan kebutuhan mereka. Oleh karena itu, sistem rekomendasi berbasis data menjadi solusi penting untuk membantu pengguna menemukan produk yang paling relevan dengan preferensi mereka. 
-
-
 Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendekatan content-based filtering dan collaborative filtering. Content-based filtering akan merekomendasikan smartphone berdasarkan kesamaan spesifikasi (fitur produk) yang pernah disukai pengguna dan Collaborative filtering akan memberikan rekomendasi berdasarkan preferensi pengguna lain yang memiliki pola perilaku serupa.
 
 
@@ -12,25 +10,18 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi smartphone dengan pendek
 - **Tantangan Personalisasi Fitur Ponsel:** Bagaimana cara merekomendasikan ponsel pintar berdasarkan kemiripan fitur dengan preferensi pengguna sebelumnya?
 - **Tantangan Personalisasi Penjualan** Bagaimana pola preferensi pengguna lain dapat membantu merekomendasikan ponsel pintar yang relevan?
   
-  
 ### Goals
 - Dengan menganalisis fitur-fitur ponsel pintar yang paling disukai oleh pengguna dan pola preferensi mereka, dapat membantu dalam pengembangan sistem rekomendasi berbasis fitur yang lebih baik dan sesuai dengan minat penggguna
 - Analisis pola interaksi dan rating antar pengguna terhadap berbagai ponsel pintar dapat memberikan gambaran tentang preferensi kolektif dan kemiripan selera, sehingga dapat membantu dalam pengembangan sistem rekomendasi yang lebih efektif dan mengikuti preferensi pengguna lain yang serupa.
 - Penyajian rekomendasi ponsel pintar yang dipersonalisasi berdasarkan kedua pendekatan dapat memberikan nilai tambah bagi pengguna dalam menemukan perangkat yang relevan dengan kebutuhan dan preferensi mereka.
   
-  
 ### Solution statements
 - Content-Based Filtering: Menganalisis fitur-fitur ponsel (merek, spesifikasi, harga, dll.) dan riwayat rating pengguna untuk merekomendasikan ponsel yang serupa dengan yang telah disukai pengguna.
-  
 - Collaborative Filtering (Neural Network): Membangun model jaringan saraf yang mempelajari pola interaksi pengguna-item (rating) untuk memprediksi preferensi dan merekomendasikan ponsel berdasarkan pengguna lain yang memiliki selera yang mirip.
   
 
 ## Data Understanding
-
-
 ### Sumber data
-
-
 Dataset yang digunakan dalam proyek ini bersumber pada : https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations yang terdiri dari tiga file utama:
 - cellphones data.csv: Berisi informasi mengenai 33 ponsel pintar populer di AS pada tahun 2022. Terdapat 14 fitur pada dataset ini, seperti performa (berdasarkan skor AnTuTu), ukuran memori, resolusi kamera, kapasitas baterai, ukuran layar, tanggal rilis, dan harga.
 - cellphones users.csv: Mengandung informasi mengenai 99 pengguna seperti usia, jenis kelamin, dan pekerjaan.
