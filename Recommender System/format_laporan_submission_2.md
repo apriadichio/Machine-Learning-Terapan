@@ -331,10 +331,10 @@ berdasarkan proses diatas, terdapat beberapa point penting yang dapat dilakukan 
 ## Data Preparation
 
 
-### merge data
+### merge all data
 
 
-Penggabungan data ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation
+Penggabungan **seluruh fitur data** dari 3 dataset (cellphone,rating dan user) ini dilakukan agar tiap fitur akan memiliki informasi yang lebih berkesinambungan yang akan meningkatkan keakurasian dari hasil sistem rekomendasi sehingga memungkinkan agar hasil rekomendasi ini lebih berfokus pada personal recommendation.
 
 
 <img src="https://github.com/user-attachments/assets/78e5259d-71db-4c8a-a420-f13f940905b6" alt="merge data" style="float: left; margin-right: 15px; width: auto; height: auto;">
