@@ -117,7 +117,8 @@ Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data s
 
 ### cellphones data.csv
 
-<img src="https://github.com/user-attachments/assets/633cb824-bcd0-410a-a95a-577869fe9f35" alt="hp_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
+![image](https://github.com/user-attachments/assets/f31a1a40-7be4-4a35-badf-9790a8dbbfec)
+
 
 Data Numerik:
 - internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
