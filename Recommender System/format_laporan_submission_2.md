@@ -301,7 +301,7 @@ datetime64[ns]
 
 **fitur model**
 
-membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
+Membersihkan dan menstandarkan data pada kolom 'model' dengan melakukan dua jenis penggantian string
 - Mengganti non-breaking space : Menggantinya dengan spasi biasa memastikan konsistensi dan mencegah kesalahan saat membandingkan atau menganalisis nama model.
 - Menghapus informasi tahun yang berada di dalam tanda kurung: membersihkan nama model dari informasi tahun rilis, yang sebenarnya sudah ada di fitur release date
 
@@ -494,7 +494,7 @@ berikut adalah hasil visualisasi dari proses pelatihan model
 
 ![image](https://github.com/user-attachments/assets/9c24650f-a56e-4b6d-b455-552862b59512)
 
-### Kesimpulan 
+### Kesimpulan Evaluasi Collaborative filltering
 
 Penjelasan Metrik Evaluasi:
 
@@ -511,7 +511,3 @@ Root Mean Squared Error (RMSE) (0.8909):
 Model Collaborative Filtering berusaha memahami pola preferensi pengguna lain, yaitu dengan melihat bagaimana pengguna yang memiliki selera atau preferensi yang mirip memberikan rating pada ponsel. Semakin baik model dalam memprediksi rating ini (ditunjukkan dengan nilai loss dan RMSE yang rendah), semakin relevan rekomendasi ponsel yang diberikan kepada pengguna tertentu.
 
 Metrik seperti loss dan RMSE mencerminkan seberapa baik model memahami preferensi pengguna berdasarkan data yang ada. Jika loss dan RMSE semakin kecil, ini berarti model lebih berhasil dalam meniru pola preferensi pengguna lain dan memberikan rekomendasi ponsel yang sesuai dengan keinginan pengguna. Sebaliknya, nilai yang lebih tinggi menunjukkan bahwa rekomendasi yang dihasilkan masih bisa ditingkatkan untuk lebih mencocokkan selera pengguna.
-
-
-
-
