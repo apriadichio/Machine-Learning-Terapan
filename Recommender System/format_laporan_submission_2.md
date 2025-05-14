@@ -139,7 +139,7 @@ Data Kategorikal:
 - brand: Merek ponsel. Terdapat 10 merek unik, dengan "Samsung" menjadi merek yang paling sering muncul (8 kali).
 - model: Nama model ponsel. Terdapat 33 model unik, yang berarti setiap baris kemungkinan besar mewakili model yang berbeda. "iPhone SE (2022)" adalah model yang paling sering muncul.
 - operating system: Sistem operasi ponsel. Terdapat 2 sistem operasi unik, dengan "Android" menjadi yang paling sering muncul (27 kali).
-release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, dengan "24/09/2021" menjadi tanggal yang paling sering muncul (4 kali).
+- release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, dengan "24/09/2021" menjadi tanggal yang paling sering muncul (4 kali).
 
 ### cellphones rating.csv
 
