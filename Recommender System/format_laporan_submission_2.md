@@ -119,7 +119,6 @@ Dengan menggunakan fungsi describe(), didapatkan hasil pada masing-masing data s
 
 ![image](https://github.com/user-attachments/assets/f31a1a40-7be4-4a35-badf-9790a8dbbfec)
 
-
 Data Numerik:
 - internal memory: Kapasitas penyimpanan internal ponsel. Rentangnya dari 8 hingga 512, dengan rata-rata sekitar 146.
 - RAM: Kapasitas memori RAM   Rentangnya dari 3 hingga 12, dengan rata-rata sekitar 6.8.
@@ -137,12 +136,9 @@ Data Kategorikal:
 - operating system: Sistem operasi ponsel. Terdapat 2 sistem operasi unik, dengan "Android" menjadi yang paling sering muncul (27 kali).
 release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, dengan "24/09/2021" menjadi tanggal yang paling sering muncul (4 kali).
 
-
 ### cellphones rating.csv
 
-
-<img src="https://github.com/user-attachments/assets/11b28d7f-dd1f-46c4-be6f-819d6d241b26" alt="rating_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+![image](https://github.com/user-attachments/assets/d434aaac-763a-4d47-a4e5-552ca9fe22ec)
 
 - Rating terendah adalah 1 dan rating tertinggi adalah 18
 - Rata-rata rating adalah 6.7.
@@ -150,14 +146,11 @@ release date: Tanggal rilis ponsel. Terdapat 26 tanggal rilis yang berbeda, deng
   
 ### cellphones users.csv
 
-
-<img src="https://github.com/user-attachments/assets/eddd05c6-ca20-40da-9f75-c260cbabfd8f" alt="user_desc()" style="float: left; margin-right: 15px; width: auto; height: auto;">
-
+![image](https://github.com/user-attachments/assets/67a61673-e13f-4e1b-a052-0214871074ff)
 
 Data Numerik:
 - age: Terdapat 99 data usia penggun dengan rata-rata usia pengguna adalah sekitar 36 tahun. Usia pengguna termuda adalah 21 tahun dan usia pengguna tertua adalah 61 tahun.
   
-
 Data Kategorikal
 - gender: Terdapat 3 kategori jenis kelamin yang berbeda. Kategori jenis kelamin yang paling sering muncul adalah "Male" (Laki-laki) sebanyak 50 kali.
 - occupation: Terdapat 56 jenis pekerjaan yang berbeda. Pekerjaan yang paling sering muncul adalah "Information Technology" (Teknologi Informasi) sebanyak 10 kali.
@@ -258,7 +251,6 @@ Kolom 'rating':
 
 
 **cellphones users.csv**
-
 
 ```
 Nilai unik dari DataFrame 'users':
